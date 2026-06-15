@@ -15,14 +15,12 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 .topbar{background:var(--green);color:#fff;padding:14px 16px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 2px 8px rgba(15,110,86,.3)}
 .topbar-left{display:flex;align-items:center;gap:10px}
 .topbar-logo{width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:18px}
-.topbar-title{font-size:16px;font-weight:600}
-.topbar-sub{font-size:11px;color:rgba(255,255,255,.75);margin-top:1px}
+.topbar-title{font-size:16px;font-weight:600}.topbar-sub{font-size:11px;color:rgba(255,255,255,.75);margin-top:1px}
 .topbar-right{display:flex;align-items:center;gap:8px}
 .sync-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);flex-shrink:0}
 .sync-dot.ok{background:#a8f0d8}.sync-dot.pending{background:#FAC775;animation:pulse 1.2s infinite}.sync-dot.error{background:#F09595}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .topbar-btn{background:rgba(255,255,255,.2);border:none;border-radius:var(--radius-sm);padding:8px 12px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)}
-.topbar-btn:active{background:rgba(255,255,255,.35)}
 .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px}
 .scroll::-webkit-scrollbar{display:none}
 .bottomnav{background:var(--card);border-top:1px solid var(--border);display:flex;flex-shrink:0;padding-bottom:env(safe-area-inset-bottom)}
@@ -32,22 +30,24 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 .screen{display:none}.screen.active{display:block}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 10px;text-align:center;box-shadow:var(--shadow)}
-.stat-num{font-size:26px;font-weight:600;color:var(--green)}
-.stat-lbl{font-size:11px;color:var(--text3);margin-top:2px;font-weight:500}
+.stat-num{font-size:26px;font-weight:600;color:var(--green)}.stat-lbl{font-size:11px;color:var(--text3);margin-top:2px;font-weight:500}
 .sec-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;margin-top:20px}
 .sec-label:first-child{margin-top:0}
-.row-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
-.row-tile{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:14px 6px;text-align:center;cursor:pointer;box-shadow:var(--shadow)}
-.row-tile:active{transform:scale(.96)}
-.row-tile.has-data{border-color:var(--green);background:var(--green-xlight)}
-.row-tile-letter{font-size:22px;font-weight:600;color:var(--text)}
-.row-tile.has-data .row-tile-letter{color:var(--green)}
-.row-tile-count{font-size:10px;color:var(--text3);margin-top:2px}
+.bloque-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:10px;cursor:pointer;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between}
+.bloque-card.has-data{border-color:var(--green);background:var(--green-xlight)}
+.bloque-label{font-size:20px;font-weight:600;color:var(--text)}.bloque-card.has-data .bloque-label{color:var(--green)}
+.bloque-info{font-size:12px;color:var(--text3);margin-top:3px}
+.bloque-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;background:var(--gray-light);color:var(--gray)}
+.bloque-card.has-data .bloque-badge{background:var(--green-light);color:var(--green-dark)}
+.linea-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.linea-tile{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 6px;text-align:center;cursor:pointer;box-shadow:var(--shadow)}
+.linea-tile.has-data{border-color:var(--green);background:var(--green-xlight)}
+.linea-num{font-size:18px;font-weight:600;color:var(--text)}.linea-tile.has-data .linea-num{color:var(--green)}
+.linea-cnt{font-size:10px;color:var(--text3);margin-top:2px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:10px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
 .card-thumb{width:54px;height:54px;border-radius:var(--radius-sm);flex-shrink:0;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:24px;overflow:hidden}
 .card-thumb img{width:100%;height:100%;object-fit:cover}
-.card-body{flex:1;min-width:0}
-.card-title{font-size:14px;font-weight:600;color:var(--text)}
+.card-body{flex:1;min-width:0}.card-title{font-size:14px;font-weight:600;color:var(--text)}
 .card-meta{font-size:11px;color:var(--text3);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px}
 .card-actions{margin-top:8px}
 .badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:600;vertical-align:middle}
@@ -69,12 +69,9 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 .photo-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .photo-thumb{width:72px;height:72px;border-radius:var(--radius-sm);object-fit:cover;border:1.5px solid var(--border)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;border:1.5px solid var(--border);background:var(--card);color:var(--text);width:100%}
-.btn:active{transform:scale(.98)}
-.btn-primary{background:var(--green);border-color:var(--green);color:#fff}
-.btn-primary:active{background:var(--green-dark)}
+.btn:active{transform:scale(.98)}.btn-primary{background:var(--green);border-color:var(--green);color:#fff}
 .btn-ghost{background:transparent;border-color:var(--border);color:var(--text2)}
-.btn-sm{padding:7px 12px;font-size:12px;width:auto}
-.btn-danger{color:var(--red);border-color:var(--red-light)}
+.btn-sm{padding:7px 12px;font-size:12px;width:auto}.btn-danger{color:var(--red);border-color:var(--red-light)}
 .btn-row{display:flex;flex-direction:column;gap:8px;margin-top:16px}
 .back-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;cursor:pointer;color:var(--text2)}
 .back-row svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
@@ -89,7 +86,7 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 .empty-state p{font-size:14px;font-weight:500;margin-bottom:6px;color:var(--text2)}
 .export-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
 .price-tag{font-size:14px;font-weight:600;color:var(--green-dark)}
-.row-detail-header{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:14px;box-shadow:var(--shadow)}
+.detail-header{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:14px;box-shadow:var(--shadow)}
 .search-box{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:var(--font);color:var(--text);background:var(--card);outline:none;margin-bottom:14px}
 .search-box:focus{border-color:var(--green)}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:flex;align-items:flex-end;justify-content:center}
@@ -103,11 +100,8 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 <div class="app">
   <div class="topbar">
     <div class="topbar-left">
-      <div class="topbar-logo">🌳</div>
-      <div>
-        <div class="topbar-title">Linus-Biome</div>
-        <div class="topbar-sub" id="topbar-sub">Inventario · Yarda Principal</div>
-      </div>
+      <div class="topbar-logo">&#127795;</div>
+      <div><div class="topbar-title">Linus-Biome</div><div class="topbar-sub" id="topbar-sub">Inventario &middot; Yarda Principal</div></div>
     </div>
     <div class="topbar-right">
       <div class="sync-dot" id="sync-dot"></div>
@@ -115,64 +109,69 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
     </div>
   </div>
 
-  <!-- HOME -->
   <div class="screen active scroll" id="screen-home">
     <div class="stats-grid">
       <div class="stat-card"><div class="stat-num" id="s-plants">0</div><div class="stat-lbl">plantas</div></div>
       <div class="stat-card"><div class="stat-num" id="s-species">0</div><div class="stat-lbl">especies</div></div>
-      <div class="stat-card"><div class="stat-num" id="s-rows">0</div><div class="stat-lbl">surcos</div></div>
+      <div class="stat-card"><div class="stat-num" id="s-lineas">0</div><div class="stat-lbl">l&iacute;neas activas</div></div>
     </div>
     <div id="home-banner"></div>
-    <div class="sec-label">mapa de surcos</div>
-    <div class="row-grid" id="row-grid"></div>
+    <div class="sec-label">bloques</div>
+    <div id="bloques-list"></div>
+  </div>
+
+  <div class="screen scroll" id="screen-bloque">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Bloques</span></div>
+    <div class="detail-header">
+      <div style="font-size:20px;font-weight:600" id="bd-name"></div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px" id="bd-meta"></div>
+    </div>
+    <div class="sec-label">l&iacute;neas</div>
+    <div class="linea-grid" id="lineas-grid"></div>
     <div style="text-align:center;margin-bottom:20px">
-      <button class="btn btn-ghost" style="width:auto;padding:8px 16px;font-size:12px" onclick="addRow()">+ agregar surco</button>
+      <button class="btn btn-ghost" style="width:auto;padding:8px 16px;font-size:12px" onclick="addLinea()">+ agregar l&iacute;nea</button>
     </div>
-    <div class="sec-label">últimos registros</div>
-    <div id="recent-list"></div>
   </div>
 
-  <!-- BUSCAR -->
-  <div class="screen scroll" id="screen-search">
-    <input class="search-box" id="search-input" placeholder="🔍 Buscar especie, surco..." oninput="renderSearch()">
-    <div id="search-results"></div>
-  </div>
-
-  <!-- ROW DETAIL -->
-  <div class="screen scroll" id="screen-row">
-    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Inicio</span></div>
-    <div class="row-detail-header">
-      <div style="font-size:20px;font-weight:600" id="rd-name"></div>
-      <div style="font-size:12px;color:var(--text3);margin-top:4px" id="rd-meta"></div>
+  <div class="screen scroll" id="screen-linea">
+    <div class="back-row" id="linea-back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span id="linea-back-label">Bloque</span></div>
+    <div class="detail-header">
+      <div style="font-size:20px;font-weight:600" id="ld-name"></div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px" id="ld-meta"></div>
     </div>
-    <button class="btn btn-primary btn-sm" style="margin-bottom:14px" onclick="quickAddFromRow()">+ Añadir planta aquí</button>
+    <button class="btn btn-primary btn-sm" style="margin-bottom:14px" onclick="quickAddFromLinea()">+ A&ntilde;adir planta aqu&iacute;</button>
     <div class="sec-label">especies</div>
-    <div class="chip-row" id="rd-chips"></div>
+    <div class="chip-row" id="ld-chips"></div>
     <div class="sec-label">plantas</div>
-    <div id="rd-plants"></div>
+    <div id="ld-plants"></div>
     <div style="height:16px"></div>
   </div>
 
-  <!-- ADD -->
+  <div class="screen scroll" id="screen-search">
+    <input class="search-box" id="search-input" placeholder="Buscar especie, bloque, linea..." oninput="renderSearch()">
+    <div id="search-results"></div>
+  </div>
+
   <div class="screen scroll" id="screen-add">
     <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Inicio</span></div>
-    <div class="alert alert-amber">📍 Precio opcional — puedes editarlo después con ✏️</div>
+    <div class="alert alert-amber">Precio opcional - editalo despues con el boton Editar</div>
     <div class="form-wrap">
-      <div class="sec-label" style="margin-top:0">ubicación</div>
+      <div class="sec-label" style="margin-top:0">ubicaci&oacute;n</div>
       <div class="form-row">
-        <div class="field"><label>Surco</label><select id="f-row"></select></div>
-        <div class="field"><label>Posición</label><input type="text" id="f-pos" placeholder="P-01"></div>
+        <div class="field"><label>Bloque</label><select id="f-bloque" onchange="updateLineasSelect()"></select></div>
+        <div class="field"><label>L&iacute;nea</label><select id="f-linea"></select></div>
       </div>
+      <div class="field"><label>Posici&oacute;n en l&iacute;nea (opcional)</label><input type="text" id="f-pos" placeholder="Ej. 3"></div>
     </div>
     <div class="form-wrap">
       <div class="sec-label" style="margin-top:0">especie</div>
-      <div class="field"><label>Nombre común</label><input type="text" id="f-species" placeholder="Red Maple..." list="sdl" autocomplete="off"><datalist id="sdl"></datalist></div>
-      <div class="field"><label>Nombre científico</label><input type="text" id="f-sci" placeholder="Acer rubrum"></div>
+      <div class="field"><label>Nombre com&uacute;n</label><input type="text" id="f-species" placeholder="Red Maple..." list="sdl" autocomplete="off"><datalist id="sdl"></datalist></div>
+      <div class="field"><label>Nombre cient&iacute;fico</label><input type="text" id="f-sci" placeholder="Acer rubrum"></div>
     </div>
     <div class="form-wrap">
-      <div class="sec-label" style="margin-top:0">tamaño & cantidad</div>
+      <div class="sec-label" style="margin-top:0">tama&ntilde;o y cantidad</div>
       <div class="form-row">
-        <div class="field"><label>Altura / Calibre</label><input type="text" id="f-height" placeholder='6ft'></div>
+        <div class="field"><label>Altura / Calibre</label><input type="text" id="f-height" placeholder="6ft"></div>
         <div class="field"><label>Spread</label><input type="text" id="f-spread" placeholder="4ft"></div>
       </div>
       <div class="field"><label>Cantidad</label><input type="number" id="f-qty" value="1" min="1"></div>
@@ -180,17 +179,17 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
     <div class="form-wrap">
       <div class="sec-label" style="margin-top:0">calidad</div>
       <div class="quality-grid">
-        <div class="q-opt" onclick="selQ(this,'Premium')">⭐<br>Premium</div>
-        <div class="q-opt" onclick="selQ(this,'Standard')">✓<br>Standard</div>
-        <div class="q-opt" onclick="selQ(this,'Segunda')">↓<br>Segunda</div>
+        <div class="q-opt" onclick="selQ(this,'Premium')">&#11088;<br>Premium</div>
+        <div class="q-opt" onclick="selQ(this,'Standard')">&#10003;<br>Standard</div>
+        <div class="q-opt" onclick="selQ(this,'Segunda')">&#8595;<br>Segunda</div>
       </div>
     </div>
     <div class="form-wrap">
-      <div class="sec-label" style="margin-top:0">precio & origen</div>
+      <div class="sec-label" style="margin-top:0">precio y origen</div>
       <div class="form-row">
         <div class="field"><label>Precio ($)</label><input type="number" id="f-price" placeholder="0.00" step="0.01"></div>
         <div class="field"><label>Origen</label>
-          <select id="f-origin"><option value="">— elegir —</option><option>Tidbury Creek</option><option>ANT Nursery</option><option>Southeastern Growers</option><option>Linus-Biome (propio)</option></select>
+          <select id="f-origin"><option value="">elegir</option><option>Tidbury Creek</option><option>ANT Nursery</option><option>Southeastern Growers</option><option>Linus-Biome (propio)</option></select>
         </div>
       </div>
     </div>
@@ -202,33 +201,32 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
       <div class="sec-label" style="margin-top:0">foto</div>
       <div class="photo-zone">
         <input type="file" accept="image/*" capture="environment" multiple onchange="handlePhotos(event)">
-        <div class="photo-zone-icon">📷</div>
+        <div class="photo-zone-icon">&#128247;</div>
         <div class="photo-zone-text">Toca para fotografiar</div>
       </div>
       <div class="photo-row" id="photo-preview"></div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-primary" onclick="savePlant()">✓ Guardar y sincronizar</button>
+      <button class="btn btn-primary" onclick="savePlant()">Guardar y sincronizar</button>
       <button class="btn btn-ghost" onclick="showScreen('home')">Cancelar</button>
     </div>
     <div style="height:20px"></div>
   </div>
 
-  <!-- EXPORT -->
   <div class="screen scroll" id="screen-export">
     <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Inicio</span></div>
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-num" id="ex-total">0</div><div class="stat-lbl">registros</div></div>
+      <div class="stat-card"><div class="stat-num" id="ex-total">0</div><div class="stat-lbl">plantas</div></div>
       <div class="stat-card"><div class="stat-num" id="ex-spc">0</div><div class="stat-lbl">especies</div></div>
-      <div class="stat-card"><div class="stat-num" id="ex-rows">0</div><div class="stat-lbl">surcos</div></div>
+      <div class="stat-card"><div class="stat-num" id="ex-lineas">0</div><div class="stat-lbl">l&iacute;neas</div></div>
     </div>
     <div id="export-banner"></div>
     <div class="sec-label">resumen por especie</div>
     <div id="exp-summary"></div>
     <div class="btn-row" style="margin-top:4px">
-      <button class="btn btn-primary" onclick="syncAll()">☁️ Sincronizar con Google Sheets</button>
-      <button class="btn btn-ghost" onclick="exportCSV()">📥 Descargar CSV</button>
-      <button class="btn btn-ghost btn-danger" onclick="clearConfirm()">🗑 Borrar datos nuevos</button>
+      <button class="btn btn-primary" onclick="syncAll()">Sincronizar con Google Sheets</button>
+      <button class="btn btn-ghost" onclick="exportCSV()">Descargar CSV</button>
+      <button class="btn btn-ghost btn-danger" onclick="clearConfirm()">Borrar datos nuevos</button>
     </div>
     <div style="height:20px"></div>
   </div>
@@ -249,19 +247,19 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
   </div>
 </div>
 
-<!-- EDIT MODAL -->
 <div class="modal-overlay hidden" id="edit-modal">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">✏️ Editar registro</div>
+    <div class="modal-title">Editar registro</div>
     <input type="hidden" id="edit-id">
     <div class="form-wrap" style="margin-bottom:10px">
       <div class="form-row">
-        <div class="field"><label>Surco</label><select id="e-row"></select></div>
-        <div class="field"><label>Posición</label><input type="text" id="e-pos"></div>
+        <div class="field"><label>Bloque</label><select id="e-bloque" onchange="updateLineasSelectEdit()"></select></div>
+        <div class="field"><label>L&iacute;nea</label><select id="e-linea"></select></div>
       </div>
+      <div class="field"><label>Posici&oacute;n</label><input type="text" id="e-pos"></div>
       <div class="field"><label>Especie</label><input type="text" id="e-species" list="sdl2"><datalist id="sdl2"></datalist></div>
-      <div class="field"><label>Nombre científico</label><input type="text" id="e-sci"></div>
+      <div class="field"><label>Nombre cient&iacute;fico</label><input type="text" id="e-sci"></div>
     </div>
     <div class="form-wrap" style="margin-bottom:10px">
       <div class="form-row">
@@ -273,22 +271,22 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
     <div class="form-wrap" style="margin-bottom:10px">
       <div class="sec-label" style="margin-top:0">calidad</div>
       <div class="quality-grid">
-        <div class="q-opt" id="eq-p" onclick="selQE(this,'Premium')">⭐<br>Premium</div>
-        <div class="q-opt" id="eq-s" onclick="selQE(this,'Standard')">✓<br>Standard</div>
-        <div class="q-opt" id="eq-2" onclick="selQE(this,'Segunda')">↓<br>Segunda</div>
+        <div class="q-opt" id="eq-p" onclick="selQE(this,'Premium')">&#11088;<br>Premium</div>
+        <div class="q-opt" id="eq-s" onclick="selQE(this,'Standard')">&#10003;<br>Standard</div>
+        <div class="q-opt" id="eq-2" onclick="selQE(this,'Segunda')">&#8595;<br>Segunda</div>
       </div>
     </div>
     <div class="form-wrap" style="margin-bottom:10px">
       <div class="form-row">
-        <div class="field"><label>💰 Precio ($)</label><input type="number" id="e-price" placeholder="0.00" step="0.01"></div>
+        <div class="field"><label>Precio ($)</label><input type="number" id="e-price" placeholder="0.00" step="0.01"></div>
         <div class="field"><label>Origen</label>
-          <select id="e-origin"><option value="">— elegir —</option><option>Tidbury Creek</option><option>ANT Nursery</option><option>Southeastern Growers</option><option>Linus-Biome (propio)</option></select>
+          <select id="e-origin"><option value="">elegir</option><option>Tidbury Creek</option><option>ANT Nursery</option><option>Southeastern Growers</option><option>Linus-Biome (propio)</option></select>
         </div>
       </div>
       <div class="field"><label>Notas</label><textarea id="e-notes"></textarea></div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-primary" onclick="saveEdit()">✓ Guardar cambios</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Guardar cambios</button>
       <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
     </div>
   </div>
@@ -296,47 +294,38 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 
 <script>
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbxDI3nZTOftimCGXjni1KBOnJ6PXIm9gfFucPlJml6EWTbySoPMolZ4RHBCCFyHITyF/exec';
-const MASTER_KEY='lb_master_v1';
-const USER_KEY='lb_user_v1';
-const PEND_KEY='lb_pend_v1';
-
-// Master data embedded from CSV
-const MASTER_DB = {"rows": [{"id": "r0", "label": "A", "name": "Surco A"}, {"id": "r1", "label": "B", "name": "Surco B"}, {"id": "r2", "label": "C", "name": "Surco C"}, {"id": "r3", "label": "D", "name": "Surco D"}, {"id": "r4", "label": "E", "name": "Surco E"}, {"id": "r5", "label": "F", "name": "Surco F"}, {"id": "r6", "label": "G", "name": "Surco G"}, {"id": "r7", "label": "H", "name": "Surco H"}, {"id": "r8", "label": "I", "name": "Surco I"}, {"id": "r9", "label": "J", "name": "Surco J"}, {"id": "r10", "label": "K", "name": "Surco K"}, {"id": "r11", "label": "L", "name": "Surco L"}, {"id": "r12", "label": "M", "name": "Surco M"}, {"id": "r13", "label": "N", "name": "Surco N"}, {"id": "r14", "label": "O", "name": "Surco O"}], "plants": [{"id": "p1780413213696", "rowId": "r0", "position": "A01", "species": "Red", "sciName": "", "height": "3-5", "spread": "5ft", "qty": 113, "quality": "Premium", "price": "125", "origin": "Linus-Biome (propio)", "notes": "Nice", "photoData": null, "ts": "2026-06-02T15:13:33.696Z"}, {"id": "p1780413272624", "rowId": "r0", "position": "", "species": "Green", "sciName": "", "height": "9-10", "spread": "", "qty": 25, "quality": "Standard", "price": "285", "origin": "Linus-Biome (propio)", "notes": "Good", "photoData": null, "ts": "2026-06-02T15:14:32.625Z"}, {"id": "p1780413481674", "rowId": "r0", "position": "", "species": "Crabapple", "sciName": "", "height": "2-2,5\"", "spread": "", "qty": 9, "quality": "Standard", "price": "225", "origin": "Linus-Biome (propio)", "notes": "Nice", "photoData": null, "ts": "2026-06-02T15:18:01.674Z"}, {"id": "p1780414126956", "rowId": "r0", "position": "", "species": "Maple", "sciName": "", "height": "7-9", "spread": "", "qty": 32, "quality": "Segunda", "price": "125", "origin": "Linus-Biome (propio)", "notes": "Nice", "photoData": null, "ts": "2026-06-02T15:28:46.957Z"}, {"id": "p1780415107345", "rowId": "r1", "position": "", "species": "Norway", "sciName": "", "height": "7-8", "spread": "", "qty": 25, "quality": "Premium", "price": "485", "origin": "", "notes": "Nice", "photoData": null, "ts": "2026-06-02T15:45:07.346Z"}, {"id": "p1780418399002", "rowId": "r0", "position": "", "species": "Chinese Holly", "sciName": "", "height": "3-4", "spread": "", "qty": 13, "quality": "Standard", "price": "", "origin": "", "notes": "Varios size", "photoData": null, "ts": "2026-06-02T16:39:59.002Z"}, {"id": "p1780418518722", "rowId": "r1", "position": "", "species": "Chinese Holly", "sciName": "", "height": "3-4", "spread": "", "qty": 11, "quality": "Standard", "price": "", "origin": "", "notes": "Varios size", "photoData": null, "ts": "2026-06-02T16:41:58.722Z"}, {"id": "p1780418591286", "rowId": "r1", "position": "", "species": "Japanesse Maple", "sciName": "", "height": "", "spread": "", "qty": 1, "quality": "Segunda", "price": "", "origin": "", "notes": "Rescatado", "photoData": null, "ts": "2026-06-02T16:43:11.286Z"}, {"id": "p1780418769482", "rowId": "r2", "position": "", "species": "Kuosa Dogwood", "sciName": "Komus Kuosa", "height": "", "spread": "", "qty": 12, "quality": "Standard", "price": "", "origin": "", "notes": "Varios Size", "photoData": null, "ts": "2026-06-02T16:46:09.482Z"}, {"id": "p1780418879320", "rowId": "r2", "position": "", "species": "Chenise Holly", "sciName": "", "height": "3-4", "spread": "", "qty": 4, "quality": "Segunda", "price": "", "origin": "", "notes": "Varios size", "photoData": null, "ts": "2026-06-02T16:47:59.320Z"}, {"id": "p1780419474196", "rowId": "r0", "position": "", "species": "Easter redbud", "sciName": "", "height": "2\"", "spread": "", "qty": 4, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T16:57:54.196Z"}, {"id": "p1780419592932", "rowId": "r3", "position": "", "species": "Japanese Cherry", "sciName": "Prunes Serrulata", "height": "2\"", "spread": "", "qty": 5, "quality": "Premium", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T16:59:52.932Z"}, {"id": "p1780419832721", "rowId": "r4", "position": "", "species": "Crabapple", "sciName": "", "height": "", "spread": "", "qty": 6, "quality": "Segunda", "price": "195", "origin": "Linus-Biome (propio)", "notes": "Del ano pasado", "photoData": null, "ts": "2026-06-02T17:03:52.721Z"}, {"id": "p1780419994804", "rowId": "r4", "position": "", "species": "Kuosa Dogwood", "sciName": "Corpus Kuosa", "height": "", "spread": "", "qty": 10, "quality": "Standard", "price": "", "origin": "", "notes": "De los 10, 2 regulares", "photoData": null, "ts": "2026-06-02T17:06:34.804Z"}, {"id": "p1780420231405", "rowId": "r5", "position": "", "species": "Kuosa Dogwood", "sciName": "Corpus Kuosa", "height": "6-7", "spread": "", "qty": 5, "quality": "Segunda", "price": "", "origin": "", "notes": "1 de los 5 regular", "photoData": null, "ts": "2026-06-02T17:10:31.406Z"}, {"id": "p1780420357359", "rowId": "r5", "position": "", "species": "Canadian Serviceberry", "sciName": "Amelachier Canadennis", "height": "", "spread": "", "qty": 12, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:12:37.359Z"}, {"id": "p1780420526979", "rowId": "r5", "position": "", "species": "Kuosa Dogwood", "sciName": "", "height": "2\"", "spread": "", "qty": 1, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:15:26.979Z"}, {"id": "p1780420609341", "rowId": "r5", "position": "", "species": "Crabapple", "sciName": "", "height": "2\"", "spread": "", "qty": 4, "quality": "Segunda", "price": "195", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:16:49.341Z"}, {"id": "p1780420779266", "rowId": "r6", "position": "", "species": "Hinoki Cypress", "sciName": "Chamaecyparis Obtusa", "height": "10'", "spread": "", "qty": 1, "quality": "Standard", "price": "350", "origin": "Linus-Biome (propio)", "notes": "", "photoData": null, "ts": "2026-06-02T17:19:39.266Z"}, {"id": "p1780420916236", "rowId": "r6", "position": "", "species": "Green Hinoki Cipress", "sciName": "", "height": "5-6'", "spread": "", "qty": 13, "quality": "Standard", "price": "350", "origin": "", "notes": "Varios size de 5 a 6 ft", "photoData": null, "ts": "2026-06-02T17:21:56.236Z"}, {"id": "p1780421078782", "rowId": "r6", "position": "", "species": "American Holly", "sciName": "Ilex Opaca", "height": "6-7'", "spread": "", "qty": 1, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:24:38.782Z"}, {"id": "p1780421149635", "rowId": "r6", "position": "", "species": "Blue Spruce", "sciName": "Picea Pungens", "height": "", "spread": "", "qty": 1, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:25:49.635Z"}, {"id": "p1780421317266", "rowId": "r7", "position": "", "species": "Flowering Dogwood", "sciName": "Cornus Florida", "height": "6-7", "spread": "", "qty": 8, "quality": "Standard", "price": "", "origin": "", "notes": "Varios size", "photoData": null, "ts": "2026-06-02T17:28:37.266Z"}, {"id": "p1780421453805", "rowId": "r7", "position": "", "species": "Common Boxwood", "sciName": "", "height": "", "spread": "", "qty": 16, "quality": "Segunda", "price": "", "origin": "", "notes": "2 mas grandes", "photoData": null, "ts": "2026-06-02T17:30:53.805Z"}, {"id": "p1780421614075", "rowId": "r8", "position": "", "species": "White spruce", "sciName": "Pincea Glauca", "height": "", "spread": "", "qty": 8, "quality": "Standard", "price": "", "origin": "", "notes": "Varios Size", "photoData": null, "ts": "2026-06-02T17:33:34.075Z"}, {"id": "p1780421696507", "rowId": "r8", "position": "", "species": "Coomun Boxwood", "sciName": "", "height": "", "spread": "", "qty": 6, "quality": "Segunda", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:34:56.507Z"}, {"id": "p1780421892363", "rowId": "r8", "position": "", "species": "Easter Red Cedar", "sciName": "Juniper Virginiana", "height": "5-6'", "spread": "", "qty": 36, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:38:12.363Z"}, {"id": "p1780422041121", "rowId": "r8", "position": "", "species": "Cherry Laurel", "sciName": "Prunus Laurel", "height": "3-4'", "spread": "", "qty": 4, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:40:41.121Z"}, {"id": "p1780422272929", "rowId": "r9", "position": "", "species": "Flowering Dogwood", "sciName": "Corpus  Florida", "height": "7-8'", "spread": "", "qty": 45, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:44:32.929Z"}, {"id": "p1780422489655", "rowId": "r9", "position": "", "species": "Lawson's Cypress", "sciName": "Chamaecyparis Lawsoniana", "height": "", "spread": "", "qty": 2, "quality": "Segunda", "price": "", "origin": "", "notes": "1 de 10 '  otro 11-12", "photoData": null, "ts": "2026-06-02T17:48:09.655Z"}, {"id": "p1780422605037", "rowId": "r9", "position": "", "species": "Pin Cherry", "sciName": "Prunus Pensylvanica", "height": "2,5\"", "spread": "", "qty": 4, "quality": "Premium", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:50:05.037Z"}, {"id": "p1780422718750", "rowId": "r9", "position": "", "species": "Norway Spruce", "sciName": "Picea Abies", "height": "12'14'", "spread": "", "qty": 2, "quality": "Segunda", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:51:58.750Z"}, {"id": "p1780422991231", "rowId": "r10", "position": "", "species": "Pink Cherry", "sciName": "Prunus Sargentii", "height": "2,5- 3\"", "spread": "", "qty": 11, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T17:56:31.231Z"}, {"id": "p1780423414055", "rowId": "r10", "position": "", "species": "Tulip Tree", "sciName": "Liriodendron Tulipifera", "height": "3-3,5\"", "spread": "", "qty": 9, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T18:03:34.055Z"}, {"id": "p1780437562405", "rowId": "r11", "position": "", "species": "Easter Red Cedar", "sciName": "Juniperus  Virginiana", "height": "12-16'", "spread": "", "qty": 3, "quality": "Standard", "price": "", "origin": "", "notes": "Anillo de cliente", "photoData": null, "ts": "2026-06-02T21:59:22.406Z"}, {"id": "p1780437661786", "rowId": "r11", "position": "", "species": "Crabapple", "sciName": "", "height": "2,5\"", "spread": "", "qty": 5, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:01:01.786Z"}, {"id": "p1780437833745", "rowId": "r11", "position": "", "species": "Eastern White Pine", "sciName": "Pinus Strobus", "height": "8-12'", "spread": "", "qty": 12, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:03:53.745Z"}, {"id": "p1780437938429", "rowId": "r12", "position": "", "species": "White Pine", "sciName": "Pinus Strobus", "height": "9-12'", "spread": "", "qty": 3, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:05:38.429Z"}, {"id": "p1780438114482", "rowId": "r12", "position": "", "species": "River Birch", "sciName": "Betula Nigra", "height": "", "spread": "", "qty": 10, "quality": "Standard", "price": "", "origin": "", "notes": "9 de 3 troncos y uno de 4", "photoData": null, "ts": "2026-06-02T22:08:34.483Z"}, {"id": "p1780438331091", "rowId": "r12", "position": "", "species": "Red Bud", "sciName": "Cersis Canadensis", "height": "2\"", "spread": "", "qty": 7, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:12:11.091Z"}, {"id": "p1780438605859", "rowId": "r13", "position": "", "species": "Japanese Cherry", "sciName": "Prunus Serrulata", "height": "4\"", "spread": "", "qty": 6, "quality": "Premium", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:16:45.859Z"}, {"id": "p1780438723793", "rowId": "r13", "position": "", "species": "Eastern Red Cedar", "sciName": "Juniperus Virginiana", "height": "14-16'", "spread": "", "qty": 1, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:18:43.793Z"}, {"id": "p1780438821578", "rowId": "r13", "position": "", "species": "River Birch", "sciName": "", "height": "", "spread": "", "qty": 1, "quality": "Premium", "price": "", "origin": "", "notes": "Anillo cliente", "photoData": null, "ts": "2026-06-02T22:20:21.578Z"}, {"id": "p1780438881726", "rowId": "r13", "position": "", "species": "Crabpples", "sciName": "", "height": "", "spread": "", "qty": 9, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:21:21.726Z"}, {"id": "p1780439029500", "rowId": "r14", "position": "", "species": "Okame Cherry", "sciName": "Prunus Serotina", "height": "2,2-3\"", "spread": "", "qty": 2, "quality": "Standard", "price": "", "origin": "", "notes": "", "photoData": null, "ts": "2026-06-02T22:23:49.500Z"}, {"id": "p1780439355271", "rowId": "r14", "position": "", "species": "Arborvitae Green Giant", "sciName": "", "height": "Q5'", "spread": "", "qty": 1, "quality": "Standard", "price": "", "origin": "", "notes": "Green giant.?", "photoData": null, "ts": "2026-06-02T22:29:15.271Z"}]};
-
-let userDb={rows:[],plants:[]};
+const USER_KEY='lb_user_v3';
+const PEND_KEY='lb_pend_v3';
+const MASTER_DB={"bloques":[{"id":"bA","label":"A","name":"Bloque A","lineas":16},{"id":"bB","label":"B","name":"Bloque B","lineas":12},{"id":"bC","label":"C","name":"Bloque C","lineas":12},{"id":"bD","label":"D","name":"Bloque D","lineas":9},{"id":"bE","label":"E","name":"Bloque E","lineas":7}],"lineas":[{"id":"lA1","bloqueId":"bA","num":1,"name":"Bloque A - Linea 1"},{"id":"lA2","bloqueId":"bA","num":2,"name":"Bloque A - Linea 2"},{"id":"lA3","bloqueId":"bA","num":3,"name":"Bloque A - Linea 3"},{"id":"lA4","bloqueId":"bA","num":4,"name":"Bloque A - Linea 4"},{"id":"lA5","bloqueId":"bA","num":5,"name":"Bloque A - Linea 5"},{"id":"lA6","bloqueId":"bA","num":6,"name":"Bloque A - Linea 6"},{"id":"lA7","bloqueId":"bA","num":7,"name":"Bloque A - Linea 7"},{"id":"lA8","bloqueId":"bA","num":8,"name":"Bloque A - Linea 8"},{"id":"lA9","bloqueId":"bA","num":9,"name":"Bloque A - Linea 9"},{"id":"lA10","bloqueId":"bA","num":10,"name":"Bloque A - Linea 10"},{"id":"lA11","bloqueId":"bA","num":11,"name":"Bloque A - Linea 11"},{"id":"lA12","bloqueId":"bA","num":12,"name":"Bloque A - Linea 12"},{"id":"lA13","bloqueId":"bA","num":13,"name":"Bloque A - Linea 13"},{"id":"lA14","bloqueId":"bA","num":14,"name":"Bloque A - Linea 14"},{"id":"lA15","bloqueId":"bA","num":15,"name":"Bloque A - Linea 15"},{"id":"lA16","bloqueId":"bA","num":16,"name":"Bloque A - Linea 16"},{"id":"lB1","bloqueId":"bB","num":1,"name":"Bloque B - Linea 1"},{"id":"lB2","bloqueId":"bB","num":2,"name":"Bloque B - Linea 2"},{"id":"lB3","bloqueId":"bB","num":3,"name":"Bloque B - Linea 3"},{"id":"lB4","bloqueId":"bB","num":4,"name":"Bloque B - Linea 4"},{"id":"lB5","bloqueId":"bB","num":5,"name":"Bloque B - Linea 5"},{"id":"lB6","bloqueId":"bB","num":6,"name":"Bloque B - Linea 6"},{"id":"lB7","bloqueId":"bB","num":7,"name":"Bloque B - Linea 7"},{"id":"lB8","bloqueId":"bB","num":8,"name":"Bloque B - Linea 8"},{"id":"lB9","bloqueId":"bB","num":9,"name":"Bloque B - Linea 9"},{"id":"lB10","bloqueId":"bB","num":10,"name":"Bloque B - Linea 10"},{"id":"lB11","bloqueId":"bB","num":11,"name":"Bloque B - Linea 11"},{"id":"lB12","bloqueId":"bB","num":12,"name":"Bloque B - Linea 12"},{"id":"lC1","bloqueId":"bC","num":1,"name":"Bloque C - Linea 1"},{"id":"lC2","bloqueId":"bC","num":2,"name":"Bloque C - Linea 2"},{"id":"lC3","bloqueId":"bC","num":3,"name":"Bloque C - Linea 3"},{"id":"lC4","bloqueId":"bC","num":4,"name":"Bloque C - Linea 4"},{"id":"lC5","bloqueId":"bC","num":5,"name":"Bloque C - Linea 5"},{"id":"lC6","bloqueId":"bC","num":6,"name":"Bloque C - Linea 6"},{"id":"lC7","bloqueId":"bC","num":7,"name":"Bloque C - Linea 7"},{"id":"lC8","bloqueId":"bC","num":8,"name":"Bloque C - Linea 8"},{"id":"lC9","bloqueId":"bC","num":9,"name":"Bloque C - Linea 9"},{"id":"lC10","bloqueId":"bC","num":10,"name":"Bloque C - Linea 10"},{"id":"lC11","bloqueId":"bC","num":11,"name":"Bloque C - Linea 11"},{"id":"lC12","bloqueId":"bC","num":12,"name":"Bloque C - Linea 12"},{"id":"lD1","bloqueId":"bD","num":1,"name":"Bloque D - Linea 1"},{"id":"lD2","bloqueId":"bD","num":2,"name":"Bloque D - Linea 2"},{"id":"lD3","bloqueId":"bD","num":3,"name":"Bloque D - Linea 3"},{"id":"lD4","bloqueId":"bD","num":4,"name":"Bloque D - Linea 4"},{"id":"lD5","bloqueId":"bD","num":5,"name":"Bloque D - Linea 5"},{"id":"lD6","bloqueId":"bD","num":6,"name":"Bloque D - Linea 6"},{"id":"lD7","bloqueId":"bD","num":7,"name":"Bloque D - Linea 7"},{"id":"lD8","bloqueId":"bD","num":8,"name":"Bloque D - Linea 8"},{"id":"lD9","bloqueId":"bD","num":9,"name":"Bloque D - Linea 9"},{"id":"lE1","bloqueId":"bE","num":1,"name":"Bloque E - Linea 1"},{"id":"lE2","bloqueId":"bE","num":2,"name":"Bloque E - Linea 2"},{"id":"lE3","bloqueId":"bE","num":3,"name":"Bloque E - Linea 3"},{"id":"lE4","bloqueId":"bE","num":4,"name":"Bloque E - Linea 4"},{"id":"lE5","bloqueId":"bE","num":5,"name":"Bloque E - Linea 5"},{"id":"lE6","bloqueId":"bE","num":6,"name":"Bloque E - Linea 6"},{"id":"lE7","bloqueId":"bE","num":7,"name":"Bloque E - Linea 7"}],"plants":[{"id":"p1780413213696","rowId":"r0","position":"A01","species":"Red","sciName":"","height":"3-5","spread":"5ft","qty":113,"quality":"Premium","price":"125","origin":"Linus-Biome (propio)","notes":"Nice","photoData":null,"ts":"2026-06-02T15:13:33.696Z","lineaId":"lA1"},{"id":"p1780413272624","rowId":"r0","position":"","species":"Green","sciName":"","height":"9-10","spread":"","qty":25,"quality":"Standard","price":"285","origin":"Linus-Biome (propio)","notes":"Good","photoData":null,"ts":"2026-06-02T15:14:32.625Z","lineaId":"lA1"},{"id":"p1780413481674","rowId":"r0","position":"","species":"Crabapple","sciName":"","height":"2-2,5in","spread":"","qty":9,"quality":"Standard","price":"225","origin":"Linus-Biome (propio)","notes":"Nice","photoData":null,"ts":"2026-06-02T15:18:01.674Z","lineaId":"lA1"},{"id":"p1780414126956","rowId":"r0","position":"","species":"Maple","sciName":"","height":"7-9","spread":"","qty":32,"quality":"Segunda","price":"125","origin":"Linus-Biome (propio)","notes":"Nice","photoData":null,"ts":"2026-06-02T15:28:46.957Z","lineaId":"lA1"},{"id":"p1780415107345","rowId":"r1","position":"","species":"Norway","sciName":"","height":"7-8","spread":"","qty":25,"quality":"Premium","price":"485","origin":"","notes":"Nice","photoData":null,"ts":"2026-06-02T15:45:07.346Z","lineaId":"lA2"},{"id":"p1780418399002","rowId":"r0","position":"","species":"Chinese Holly","sciName":"","height":"3-4","spread":"","qty":13,"quality":"Standard","price":"","origin":"","notes":"Varios size","photoData":null,"ts":"2026-06-02T16:39:59.002Z","lineaId":"lA1"},{"id":"p1780418518722","rowId":"r1","position":"","species":"Chinese Holly","sciName":"","height":"3-4","spread":"","qty":11,"quality":"Standard","price":"","origin":"","notes":"Varios size","photoData":null,"ts":"2026-06-02T16:41:58.722Z","lineaId":"lA2"},{"id":"p1780418591286","rowId":"r1","position":"","species":"Japanesse Maple","sciName":"","height":"","spread":"","qty":1,"quality":"Segunda","price":"","origin":"","notes":"Rescatado","photoData":null,"ts":"2026-06-02T16:43:11.286Z","lineaId":"lA2"},{"id":"p1780418769482","rowId":"r2","position":"","species":"Kuosa Dogwood","sciName":"Komus Kuosa","height":"","spread":"","qty":12,"quality":"Standard","price":"","origin":"","notes":"Varios Size","photoData":null,"ts":"2026-06-02T16:46:09.482Z","lineaId":"lA3"},{"id":"p1780418879320","rowId":"r2","position":"","species":"Chenise Holly","sciName":"","height":"3-4","spread":"","qty":4,"quality":"Segunda","price":"","origin":"","notes":"Varios size","photoData":null,"ts":"2026-06-02T16:47:59.320Z","lineaId":"lA3"},{"id":"p1780419474196","rowId":"r0","position":"","species":"Easter redbud","sciName":"","height":"2in","spread":"","qty":4,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T16:57:54.196Z","lineaId":"lA1"},{"id":"p1780419592932","rowId":"r3","position":"","species":"Japanese Cherry","sciName":"Prunes Serrulata","height":"2in","spread":"","qty":5,"quality":"Premium","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T16:59:52.932Z","lineaId":"lA4"},{"id":"p1780419832721","rowId":"r4","position":"","species":"Crabapple","sciName":"","height":"","spread":"","qty":6,"quality":"Segunda","price":"195","origin":"Linus-Biome (propio)","notes":"Del ano pasado","photoData":null,"ts":"2026-06-02T17:03:52.721Z","lineaId":"lA5"},{"id":"p1780419994804","rowId":"r4","position":"","species":"Kuosa Dogwood","sciName":"Corpus Kuosa","height":"","spread":"","qty":10,"quality":"Standard","price":"","origin":"","notes":"De los 10, 2 regulares","photoData":null,"ts":"2026-06-02T17:06:34.804Z","lineaId":"lA5"},{"id":"p1780420231405","rowId":"r5","position":"","species":"Kuosa Dogwood","sciName":"Corpus Kuosa","height":"6-7","spread":"","qty":5,"quality":"Segunda","price":"","origin":"","notes":"1 de los 5 regular","photoData":null,"ts":"2026-06-02T17:10:31.406Z","lineaId":"lA6"},{"id":"p1780420357359","rowId":"r5","position":"","species":"Canadian Serviceberry","sciName":"Amelachier Canadennis","height":"","spread":"","qty":12,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:12:37.359Z","lineaId":"lA6"},{"id":"p1780420526979","rowId":"r5","position":"","species":"Kuosa Dogwood","sciName":"","height":"2in","spread":"","qty":1,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:15:26.979Z","lineaId":"lA6"},{"id":"p1780420609341","rowId":"r5","position":"","species":"Crabapple","sciName":"","height":"2in","spread":"","qty":4,"quality":"Segunda","price":"195","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:16:49.341Z","lineaId":"lA6"},{"id":"p1780420779266","rowId":"r6","position":"","species":"Hinoki Cypress","sciName":"Chamaecyparis Obtusa","height":"10ft","spread":"","qty":1,"quality":"Standard","price":"350","origin":"Linus-Biome (propio)","notes":"","photoData":null,"ts":"2026-06-02T17:19:39.266Z","lineaId":"lA7"},{"id":"p1780420916236","rowId":"r6","position":"","species":"Green Hinoki Cipress","sciName":"","height":"5-6ft","spread":"","qty":13,"quality":"Standard","price":"350","origin":"","notes":"Varios size de 5 a 6 ft","photoData":null,"ts":"2026-06-02T17:21:56.236Z","lineaId":"lA7"},{"id":"p1780421078782","rowId":"r6","position":"","species":"American Holly","sciName":"Ilex Opaca","height":"6-7ft","spread":"","qty":1,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:24:38.782Z","lineaId":"lA7"},{"id":"p1780421149635","rowId":"r6","position":"","species":"Blue Spruce","sciName":"Picea Pungens","height":"","spread":"","qty":1,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:25:49.635Z","lineaId":"lA7"},{"id":"p1780421317266","rowId":"r7","position":"","species":"Flowering Dogwood","sciName":"Cornus Florida","height":"6-7","spread":"","qty":8,"quality":"Standard","price":"","origin":"","notes":"Varios size","photoData":null,"ts":"2026-06-02T17:28:37.266Z","lineaId":"lA8"},{"id":"p1780421453805","rowId":"r7","position":"","species":"Common Boxwood","sciName":"","height":"","spread":"","qty":16,"quality":"Segunda","price":"","origin":"","notes":"2 mas grandes","photoData":null,"ts":"2026-06-02T17:30:53.805Z","lineaId":"lA8"},{"id":"p1780421614075","rowId":"r8","position":"","species":"White spruce","sciName":"Pincea Glauca","height":"","spread":"","qty":8,"quality":"Standard","price":"","origin":"","notes":"Varios Size","photoData":null,"ts":"2026-06-02T17:33:34.075Z","lineaId":"lA9"},{"id":"p1780421696507","rowId":"r8","position":"","species":"Coomun Boxwood","sciName":"","height":"","spread":"","qty":6,"quality":"Segunda","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:34:56.507Z","lineaId":"lA9"},{"id":"p1780421892363","rowId":"r8","position":"","species":"Easter Red Cedar","sciName":"Juniper Virginiana","height":"5-6ft","spread":"","qty":36,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:38:12.363Z","lineaId":"lA9"},{"id":"p1780422041121","rowId":"r8","position":"","species":"Cherry Laurel","sciName":"Prunus Laurel","height":"3-4ft","spread":"","qty":4,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:40:41.121Z","lineaId":"lA9"},{"id":"p1780422272929","rowId":"r9","position":"","species":"Flowering Dogwood","sciName":"Corpus  Florida","height":"7-8ft","spread":"","qty":45,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:44:32.929Z","lineaId":"lA10"},{"id":"p1780422489655","rowId":"r9","position":"","species":"Lawsonfts Cypress","sciName":"Chamaecyparis Lawsoniana","height":"","spread":"","qty":2,"quality":"Segunda","price":"","origin":"","notes":"1 de 10 ft  otro 11-12","photoData":null,"ts":"2026-06-02T17:48:09.655Z","lineaId":"lA10"},{"id":"p1780422605037","rowId":"r9","position":"","species":"Pin Cherry","sciName":"Prunus Pensylvanica","height":"2,5in","spread":"","qty":4,"quality":"Premium","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:50:05.037Z","lineaId":"lA10"},{"id":"p1780422718750","rowId":"r9","position":"","species":"Norway Spruce","sciName":"Picea Abies","height":"12ft14ft","spread":"","qty":2,"quality":"Segunda","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:51:58.750Z","lineaId":"lA10"},{"id":"p1780422991231","rowId":"r10","position":"","species":"Pink Cherry","sciName":"Prunus Sargentii","height":"2,5- 3in","spread":"","qty":11,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T17:56:31.231Z","lineaId":"lA11"},{"id":"p1780423414055","rowId":"r10","position":"","species":"Tulip Tree","sciName":"Liriodendron Tulipifera","height":"3-3,5in","spread":"","qty":9,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T18:03:34.055Z","lineaId":"lA11"},{"id":"p1780437562405","rowId":"r11","position":"","species":"Easter Red Cedar","sciName":"Juniperus  Virginiana","height":"12-16ft","spread":"","qty":3,"quality":"Standard","price":"","origin":"","notes":"Anillo de cliente","photoData":null,"ts":"2026-06-02T21:59:22.406Z","lineaId":"lA12"},{"id":"p1780437661786","rowId":"r11","position":"","species":"Crabapple","sciName":"","height":"2,5in","spread":"","qty":5,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:01:01.786Z","lineaId":"lA12"},{"id":"p1780437833745","rowId":"r11","position":"","species":"Eastern White Pine","sciName":"Pinus Strobus","height":"8-12ft","spread":"","qty":12,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:03:53.745Z","lineaId":"lA12"},{"id":"p1780437938429","rowId":"r12","position":"","species":"White Pine","sciName":"Pinus Strobus","height":"9-12ft","spread":"","qty":3,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:05:38.429Z","lineaId":"lA13"},{"id":"p1780438114482","rowId":"r12","position":"","species":"River Birch","sciName":"Betula Nigra","height":"","spread":"","qty":10,"quality":"Standard","price":"","origin":"","notes":"9 de 3 troncos y uno de 4","photoData":null,"ts":"2026-06-02T22:08:34.483Z","lineaId":"lA13"},{"id":"p1780438331091","rowId":"r12","position":"","species":"Red Bud","sciName":"Cersis Canadensis","height":"2in","spread":"","qty":7,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:12:11.091Z","lineaId":"lA13"},{"id":"p1780438605859","rowId":"r13","position":"","species":"Japanese Cherry","sciName":"Prunus Serrulata","height":"4in","spread":"","qty":6,"quality":"Premium","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:16:45.859Z","lineaId":"lA14"},{"id":"p1780438723793","rowId":"r13","position":"","species":"Eastern Red Cedar","sciName":"Juniperus Virginiana","height":"14-16ft","spread":"","qty":1,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:18:43.793Z","lineaId":"lA14"},{"id":"p1780438821578","rowId":"r13","position":"","species":"River Birch","sciName":"","height":"","spread":"","qty":1,"quality":"Premium","price":"","origin":"","notes":"Anillo cliente","photoData":null,"ts":"2026-06-02T22:20:21.578Z","lineaId":"lA14"},{"id":"p1780438881726","rowId":"r13","position":"","species":"Crabpples","sciName":"","height":"","spread":"","qty":9,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:21:21.726Z","lineaId":"lA14"},{"id":"p1780439029500","rowId":"r14","position":"","species":"Okame Cherry","sciName":"Prunus Serotina","height":"2,2-3in","spread":"","qty":2,"quality":"Standard","price":"","origin":"","notes":"","photoData":null,"ts":"2026-06-02T22:23:49.500Z","lineaId":"lA15"},{"id":"p1780439355271","rowId":"r14","position":"","species":"Arborvitae Green Giant","sciName":"","height":"Q5ft","spread":"","qty":1,"quality":"Standard","price":"","origin":"","notes":"Green giant.?","photoData":null,"ts":"2026-06-02T22:29:15.271Z","lineaId":"lA15"}]};
+let userDb={bloques:[],lineas:[],plants:[]};
 let pending=[];
-let currentQ='';
-let currentQE='';
-let currentPhotos=[];
-let activeRow=null;
+let currentQ='';let currentQE='';let currentPhotos=[];
+let activeBloqueId=null;let activeLineaId=null;
 
-function getMergedDb(){
-  // Start with master rows, add user rows
-  const allRows=[...MASTER_DB.rows];
-  userDb.rows.forEach(r=>{ if(!allRows.find(x=>x.id===r.id)) allRows.push(r); });
-  // All plants: master + user
-  const allPlants=[...MASTER_DB.plants,...userDb.plants];
-  return {rows:allRows, plants:allPlants};
+function getMerged(){
+  const bloques=[...MASTER_DB.bloques];
+  const lineas=[...MASTER_DB.lineas];
+  const plants=[...MASTER_DB.plants];
+  userDb.bloques.forEach(b=>{if(!bloques.find(x=>x.id===b.id))bloques.push(b);});
+  userDb.lineas.forEach(l=>{if(!lineas.find(x=>x.id===l.id))lineas.push(l);});
+  userDb.plants.forEach(p=>{const idx=plants.findIndex(x=>x.id===p.id);if(idx>=0)plants[idx]=p;else plants.push(p);});
+  return{bloques,lineas,plants};
 }
 
 function init(){
   try{const s=localStorage.getItem(USER_KEY);if(s)userDb=JSON.parse(s);}catch(e){}
   try{const p=localStorage.getItem(PEND_KEY);if(p)pending=JSON.parse(p);}catch(e){}
-  if(!userDb.rows) userDb={rows:[],plants:[]};
-  render();
-  setSyncDot(pending.length?'pending':'ok');
+  if(!userDb.bloques)userDb={bloques:[],lineas:[],plants:[]};
+  render();setSyncDot(pending.length?'pending':'ok');
 }
-
 function saveUser(){try{localStorage.setItem(USER_KEY,JSON.stringify(userDb));}catch(e){}}
 function savePend(){try{localStorage.setItem(PEND_KEY,JSON.stringify(pending));}catch(e){}}
 
 function showScreen(n){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+n).classList.add('active');
-  ['home','search','add','export'].forEach(x=>{
-    const el=document.getElementById('nav-'+x);if(el)el.classList.toggle('active',x===n);
-  });
-  const sub={home:'Inventario · Yarda Principal',search:'Buscar',add:'Nuevo registro',export:'Exportar / Sync',row:'Detalle surco'};
+  ['home','search','add','export'].forEach(x=>{const el=document.getElementById('nav-'+x);if(el)el.classList.toggle('active',x===n);});
+  const sub={home:'Inventario Yarda Principal',search:'Buscar',add:'Nuevo registro',export:'Exportar',bloque:'Detalle bloque',linea:'Detalle linea'};
   document.getElementById('topbar-sub').textContent=sub[n]||'';
   if(n==='add')initForm();
   if(n==='export')renderExport();
@@ -346,81 +335,127 @@ function showScreen(n){
 function navTo(n){showScreen(n);}
 
 function render(){
-  const db=getMergedDb();
+  const db=getMerged();
   const spc=[...new Set(db.plants.map(p=>(p.species||'').toLowerCase().trim()).filter(Boolean))];
-  const actR=[...new Set(db.plants.map(p=>p.rowId))];
+  const actL=[...new Set(db.plants.map(p=>p.lineaId))];
   document.getElementById('s-plants').textContent=db.plants.length;
   document.getElementById('s-species').textContent=spc.length;
-  document.getElementById('s-rows').textContent=actR.length;
-  renderRowGrid(db);
-  renderRecent(db);
+  document.getElementById('s-lineas').textContent=actL.length;
+  renderBloques(db);
   const b=document.getElementById('home-banner');
-  b.innerHTML=pending.length?`<div class="alert alert-amber" style="margin-bottom:14px">⏳ ${pending.length} pendiente(s) de sync. <span style="text-decoration:underline;cursor:pointer" onclick="syncAll()">Sincronizar ahora</span></div>`:'';
+  b.innerHTML=pending.length?'<div class="alert alert-amber" style="margin-bottom:14px">'+pending.length+' pendiente(s). <span style="text-decoration:underline;cursor:pointer" onclick="syncAll()">Sincronizar</span></div>':'';
 }
 
-function renderRowGrid(db){
-  const g=document.getElementById('row-grid');g.innerHTML='';
-  db.rows.forEach(row=>{
-    const cnt=db.plants.filter(p=>p.rowId===row.id).length;
-    const t=document.createElement('div');
-    t.className='row-tile'+(cnt?' has-data':'');
-    t.innerHTML=`<div class="row-tile-letter">${row.label}</div><div class="row-tile-count">${cnt} pl.</div>`;
-    t.onclick=()=>showRowDetail(row.id);
-    g.appendChild(t);
-  });
+function renderBloques(db){
+  const list=document.getElementById('bloques-list');
+  list.innerHTML=db.bloques.map(b=>{
+    const lineas=db.lineas.filter(l=>l.bloqueId===b.id);
+    const plants=db.plants.filter(p=>lineas.some(l=>l.id===p.lineaId));
+    const hasData=plants.length>0;
+    const spc=[...new Set(plants.map(p=>p.species).filter(Boolean))].length;
+    return '<div class="bloque-card '+(hasData?'has-data':'')+'" onclick="showBloqueDetail(''+b.id+'')">'
+      +'<div><div class="bloque-label">Bloque '+b.label+'</div>'
+      +'<div class="bloque-info">'+lineas.length+' lineas &middot; '+plants.length+' plantas &middot; '+spc+' especies</div></div>'
+      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">'
+      +'<span class="bloque-badge">'+(hasData?'Con datos':'Vacio')+'</span>'
+      +'<span style="color:var(--text3);font-size:18px">&rsaquo;</span></div></div>';
+  }).join('');
 }
 
-function renderRecent(db){
-  const l=document.getElementById('recent-list');
-  if(!db.plants.length){l.innerHTML=`<div class="empty-state"><div class="ei">🌱</div><p>Sin registros</p></div>`;return;}
-  l.innerHTML=[...db.plants].reverse().slice(0,8).map(p=>plantCard(p,db)).join('');
+function showBloqueDetail(bloqueId){
+  const db=getMerged();
+  const bloque=db.bloques.find(b=>b.id===bloqueId);if(!bloque)return;
+  activeBloqueId=bloqueId;
+  const lineas=db.lineas.filter(l=>l.bloqueId===bloqueId);
+  const plants=db.plants.filter(p=>lineas.some(l=>l.id===p.lineaId));
+  document.getElementById('bd-name').textContent=bloque.name;
+  document.getElementById('bd-meta').textContent=lineas.length+' lineas - '+plants.length+' plantas';
+  const grid=document.getElementById('lineas-grid');
+  grid.innerHTML=lineas.map(l=>{
+    const cnt=db.plants.filter(p=>p.lineaId===l.id).length;
+    return '<div class="linea-tile '+(cnt?'has-data':'')+'" onclick="showLineaDetail(''+l.id+'')"><div class="linea-num">'+l.num+'</div><div class="linea-cnt">'+cnt+' pl.</div></div>';
+  }).join('');
+  showScreen('bloque');
+  document.getElementById('topbar-sub').textContent=bloque.name;
+}
+
+function showLineaDetail(lineaId){
+  const db=getMerged();
+  const linea=db.lineas.find(l=>l.id===lineaId);if(!linea)return;
+  activeLineaId=lineaId;activeBloqueId=linea.bloqueId;
+  const bloque=db.bloques.find(b=>b.id===linea.bloqueId);
+  const plants=db.plants.filter(p=>p.lineaId===lineaId);
+  document.getElementById('ld-name').textContent=linea.name;
+  document.getElementById('ld-meta').textContent=plants.length+' planta'+(plants.length!==1?'s':'')+' registradas';
+  document.getElementById('linea-back-label').textContent=bloque?bloque.name:'Bloque';
+  document.getElementById('linea-back').onclick=function(){showBloqueDetail(linea.bloqueId);};
+  const spc=[...new Set(plants.map(p=>p.species).filter(Boolean))];
+  document.getElementById('ld-chips').innerHTML=spc.length?spc.map(s=>'<div class="chip">'+s+'</div>').join(''):'<span style="font-size:12px;color:var(--text3)">Sin registros</span>';
+  document.getElementById('ld-plants').innerHTML=plants.length?plants.map(p=>plantCard(p,db)).join(''):'<div class="empty-state"><div class="ei">&#127807;</div><p>Linea vacia</p></div>';
+  showScreen('linea');
+  document.getElementById('topbar-sub').textContent=linea.name;
+}
+
+function addLinea(){
+  const db=getMerged();
+  const bloqueLineas=db.lineas.filter(l=>l.bloqueId===activeBloqueId);
+  const nextNum=bloqueLineas.length+1;
+  const bloque=db.bloques.find(b=>b.id===activeBloqueId);
+  const newLinea={id:'l'+Date.now(),bloqueId:activeBloqueId,num:nextNum,name:(bloque?bloque.name:'Bloque')+' Linea '+nextNum};
+  userDb.lineas.push(newLinea);saveUser();showBloqueDetail(activeBloqueId);
 }
 
 function plantCard(p,db){
-  if(!db)db=getMergedDb();
-  const row=db.rows.find(r=>r.id===p.rowId);
+  if(!db)db=getMerged();
+  const linea=db.lineas.find(l=>l.id===p.lineaId);
+  const bloque=linea?db.bloques.find(b=>b.id===linea.bloqueId):null;
   const qb=p.quality==='Premium'?'b-green':p.quality==='Standard'?'b-blue':'b-gray';
   const isPend=pending.includes(p.id);
-  const isUser=userDb.plants.find(x=>x.id===p.id);
-  return`<div class="card">
-    <div class="card-thumb">${p.photoData?`<img src="${p.photoData}" alt="">`:'🌳'}</div>
-    <div class="card-body">
-      <div class="card-title">${p.species||'—'} ${p.quality?`<span class="badge ${qb}">${p.quality}</span>`:''} ${isPend?'<span class="badge b-amber">⏳</span>':''}</div>
-      <div class="card-meta">
-        ${row?`<span>📍${row.name}${p.position?' · '+p.position:''}</span>`:''}
-        ${p.height?`<span>📏${p.height}</span>`:''}
-        ${p.qty>1?`<span>✕${p.qty}</span>`:''}
-        ${p.price?`<span class="price-tag">$${parseFloat(p.price).toFixed(2)}</span>`:`<span style="color:var(--text3);font-style:italic">sin precio</span>`}
-      </div>
-      <div class="card-actions"><button class="btn btn-ghost btn-sm" onclick="openEdit('${p.id}')">✏️ Editar</button></div>
-    </div>
-  </div>`;
+  const loc=bloque&&linea?'Bloque '+bloque.label+' L'+linea.num:linea?linea.name:'';
+  return '<div class="card">'
+    +'<div class="card-thumb">'+(p.photoData?'<img src="'+p.photoData+'" alt="">':'&#127795;')+'</div>'
+    +'<div class="card-body">'
+    +'<div class="card-title">'+(p.species||'?')+' '+(p.quality?'<span class="badge '+qb+'">'+p.quality+'</span>':'')+(isPend?' <span class="badge b-amber">pendiente</span>':'')+'</div>'
+    +'<div class="card-meta">'
+    +(loc?'<span>'+loc+(p.position?' pos.'+p.position:'')+'</span>':'')
+    +(p.height?'<span>'+p.height+'</span>':'')
+    +(p.qty>1?'<span>x'+p.qty+'</span>':'')
+    +(p.price?'<span class="price-tag">$'+parseFloat(p.price).toFixed(2)+'</span>':'<span style="color:var(--text3);font-style:italic">sin precio</span>')
+    +'</div>'
+    +'<div class="card-actions"><button class="btn btn-ghost btn-sm" onclick="openEdit(''+p.id+'')">Editar</button></div>'
+    +'</div></div>';
 }
 
 function renderSearch(){
   const q=document.getElementById('search-input').value.toLowerCase().trim();
-  const db=getMergedDb();
-  const results=q?db.plants.filter(p=>(p.species||'').toLowerCase().includes(q)||(db.rows.find(r=>r.id===p.rowId)||{}).name.toLowerCase().includes(q)):db.plants.slice().reverse().slice(0,20);
+  const db=getMerged();
+  const results=q?db.plants.filter(p=>{
+    const linea=db.lineas.find(l=>l.id===p.lineaId);
+    const bloque=linea?db.bloques.find(b=>b.id===linea.bloqueId):null;
+    return(p.species||'').toLowerCase().includes(q)||(linea?linea.name.toLowerCase().includes(q):false)||(bloque?bloque.name.toLowerCase().includes(q):false);
+  }):db.plants.slice().reverse().slice(0,20);
   const container=document.getElementById('search-results');
-  if(!results.length){container.innerHTML=`<div class="empty-state"><div class="ei">🔍</div><p>Sin resultados</p></div>`;return;}
+  if(!results.length){container.innerHTML='<div class="empty-state"><div class="ei">&#128269;</div><p>Sin resultados</p></div>';return;}
   container.innerHTML=results.map(p=>plantCard(p,db)).join('');
 }
 
-function showRowDetail(rowId){
-  const db=getMergedDb();
-  const row=db.rows.find(r=>r.id===rowId);if(!row)return;
-  activeRow=rowId;
-  const plants=db.plants.filter(p=>p.rowId===rowId);
-  document.getElementById('rd-name').textContent=row.name;
-  document.getElementById('rd-meta').textContent=plants.length+' planta'+(plants.length!==1?'s':'')+' registradas';
-  const spc=[...new Set(plants.map(p=>p.species).filter(Boolean))];
-  document.getElementById('rd-chips').innerHTML=spc.length?spc.map(s=>`<div class="chip">🍃 ${s}</div>`).join(''):`<span style="font-size:12px;color:var(--text3)">Sin registros</span>`;
-  document.getElementById('rd-plants').innerHTML=plants.length?plants.map(p=>plantCard(p,db)).join(''):`<div class="empty-state"><div class="ei">🌱</div><p>Surco vacío</p></div>`;
-  showScreen('row');
-  document.getElementById('topbar-sub').textContent=row.name+' · detalle';
+function updateLineasSelect(){
+  const db=getMerged();
+  const bloqueId=document.getElementById('f-bloque').value;
+  const lineas=db.lineas.filter(l=>l.bloqueId===bloqueId);
+  const sel=document.getElementById('f-linea');
+  sel.innerHTML=lineas.map(l=>'<option value="'+l.id+'">Linea '+l.num+'</option>').join('');
+  if(activeLineaId){const found=lineas.find(l=>l.id===activeLineaId);if(found)sel.value=activeLineaId;}
 }
 
-function quickAddFromRow(){showScreen('add');setTimeout(()=>{const s=document.getElementById('f-row');if(s&&activeRow)s.value=activeRow;},60);}
+function updateLineasSelectEdit(){
+  const db=getMerged();
+  const bloqueId=document.getElementById('e-bloque').value;
+  const lineas=db.lineas.filter(l=>l.bloqueId===bloqueId);
+  document.getElementById('e-linea').innerHTML=lineas.map(l=>'<option value="'+l.id+'">Linea '+l.num+'</option>').join('');
+}
+
+function quickAddFromLinea(){showScreen('add');}
 
 function initForm(){
   currentQ='';currentPhotos=[];
@@ -430,12 +465,13 @@ function initForm(){
   document.getElementById('f-qty').value=1;
   document.getElementById('f-price').value='';
   document.getElementById('f-origin').value='';
-  const db=getMergedDb();
-  const rs=document.getElementById('f-row');
-  rs.innerHTML=db.rows.map(r=>`<option value="${r.id}">${r.name}</option>`).join('');
-  if(activeRow)rs.value=activeRow;
+  const db=getMerged();
+  const bs=document.getElementById('f-bloque');
+  bs.innerHTML=db.bloques.map(b=>'<option value="'+b.id+'">'+b.name+'</option>').join('');
+  if(activeBloqueId)bs.value=activeBloqueId;
+  updateLineasSelect();
   const spc=[...new Set(db.plants.map(p=>p.species).filter(Boolean))];
-  document.getElementById('sdl').innerHTML=spc.map(s=>`<option value="${s}">`).join('');
+  document.getElementById('sdl').innerHTML=spc.map(s=>'<option value="'+s+'">').join('');
 }
 
 function selQ(el,v){document.querySelectorAll('#screen-add .q-opt').forEach(q=>q.classList.remove('sel'));el.classList.add('sel');currentQ=v;}
@@ -443,9 +479,7 @@ function selQE(el,v){document.querySelectorAll('#edit-modal .q-opt').forEach(q=>
 
 function handlePhotos(e){
   Array.from(e.target.files).forEach(file=>{
-    const canvas=document.createElement('canvas');
-    const img=new Image();
-    const reader=new FileReader();
+    const canvas=document.createElement('canvas');const img=new Image();const reader=new FileReader();
     reader.onload=ev=>{img.onload=()=>{const MAX=900;let w=img.width,h=img.height;if(w>MAX){h=h*(MAX/w);w=MAX;}canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);const data=canvas.toDataURL('image/jpeg',.7);currentPhotos.push(data);const t=document.createElement('img');t.src=data;t.className='photo-thumb';document.getElementById('photo-preview').appendChild(t);};img.src=ev.target.result;};
     reader.readAsDataURL(file);
   });
@@ -453,88 +487,79 @@ function handlePhotos(e){
 
 function savePlant(){
   const species=document.getElementById('f-species').value.trim();
-  const rowId=document.getElementById('f-row').value;
+  const lineaId=document.getElementById('f-linea').value;
   if(!species){alert('Ingresa la especie.');return;}
-  const p={id:'p'+Date.now(),rowId,position:document.getElementById('f-pos').value.trim(),species,sciName:document.getElementById('f-sci').value.trim(),height:document.getElementById('f-height').value.trim(),spread:document.getElementById('f-spread').value.trim(),qty:parseInt(document.getElementById('f-qty').value)||1,quality:currentQ,price:document.getElementById('f-price').value,origin:document.getElementById('f-origin').value,notes:document.getElementById('f-notes').value.trim(),photoData:currentPhotos[0]||null,ts:new Date().toISOString()};
-  userDb.plants.push(p);saveUser();
-  pending.push(p.id);savePend();
-  syncPlants([p]);
-  activeRow=null;showScreen('home');
+  if(!lineaId){alert('Selecciona la linea.');return;}
+  const p={id:'p'+Date.now(),lineaId,position:document.getElementById('f-pos').value.trim(),species,sciName:document.getElementById('f-sci').value.trim(),height:document.getElementById('f-height').value.trim(),spread:document.getElementById('f-spread').value.trim(),qty:parseInt(document.getElementById('f-qty').value)||1,quality:currentQ,price:document.getElementById('f-price').value,origin:document.getElementById('f-origin').value,notes:document.getElementById('f-notes').value.trim(),photoData:currentPhotos[0]||null,ts:new Date().toISOString()};
+  userDb.plants.push(p);saveUser();pending.push(p.id);savePend();syncPlants([p]);activeLineaId=null;showScreen('home');
 }
 
-function addRow(){
-  const db=getMergedDb();
-  const used=db.rows.map(r=>r.label);
-  let next=null;
-  for(const l of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){if(!used.includes(l)){next=l;break;}}
-  if(!next)next=String(db.rows.length+1);
-  const newRow={id:'r'+Date.now(),label:next,name:'Surco '+next};
-  userDb.rows.push(newRow);saveUser();renderRowGrid(getMergedDb());
-}
+function getLineaName(lineaId){const db=getMerged();const l=db.lineas.find(x=>x.id===lineaId);if(!l)return'';const b=db.bloques.find(x=>x.id===l.bloqueId);return b?b.name+' Linea '+l.num:l.name;}
 
-function getRowName(rowId){const db=getMergedDb();const r=db.rows.find(x=>x.id===rowId);return r?r.name:'';}
-
-function buildPayload(p){return{id:p.id,ts:p.ts,rowName:getRowName(p.rowId),position:p.position||'',species:p.species||'',sciName:p.sciName||'',height:p.height||'',spread:p.spread||'',qty:p.qty||1,quality:p.quality||'',price:p.price||'',origin:p.origin||'',notes:p.notes||''};}
+function buildPayload(p){return{id:p.id,ts:p.ts,ubicacion:getLineaName(p.lineaId),position:p.position||'',species:p.species||'',sciName:p.sciName||'',height:p.height||'',spread:p.spread||'',qty:p.qty||1,quality:p.quality||'',price:p.price||'',origin:p.origin||'',notes:p.notes||''};}
 
 function setSyncDot(state){document.getElementById('sync-dot').className='sync-dot '+state;}
 
 function syncPlants(plants){
   setSyncDot('pending');
   const payload=JSON.stringify(plants.length===1?buildPayload(plants[0]):plants.map(buildPayload));
-  const form=document.createElement('form');
-  form.method='POST';form.action=SCRIPT_URL;form.target='sync-frame';form.style.display='none';
-  const inp=document.createElement('input');inp.name='payload';inp.value=payload;
-  form.appendChild(inp);document.body.appendChild(form);
+  const form=document.createElement('form');form.method='POST';form.action=SCRIPT_URL;form.target='sync-frame';form.style.display='none';
+  const inp=document.createElement('input');inp.name='payload';inp.value=payload;form.appendChild(inp);document.body.appendChild(form);
   let frame=document.getElementById('sync-frame');
   if(!frame){frame=document.createElement('iframe');frame.id='sync-frame';frame.name='sync-frame';frame.style.display='none';document.body.appendChild(frame);}
-  frame.onload=()=>{plants.forEach(p=>{pending=pending.filter(id=>id!==p.id);});savePend();setSyncDot(pending.length?'pending':'ok');render();if(document.body.contains(form))document.body.removeChild(form);};
-  form.submit();
-  setTimeout(()=>{if(document.body.contains(form))document.body.removeChild(form);},5000);
+  frame.onload=function(){plants.forEach(p=>{pending=pending.filter(id=>id!==p.id);});savePend();setSyncDot(pending.length?'pending':'ok');render();if(document.body.contains(form))document.body.removeChild(form);};
+  form.submit();setTimeout(function(){if(document.body.contains(form))document.body.removeChild(form);},5000);
 }
 
 function syncAll(){
   const toSync=userDb.plants.filter(p=>pending.includes(p.id));
-  if(!toSync.length){alert('✅ Todo sincronizado.');return;}
-  syncPlants(toSync);
-  setTimeout(()=>alert('✅ Enviados '+toSync.length+' registros a Google Sheets.'),2000);
+  if(!toSync.length){alert('Todo sincronizado');return;}
+  syncPlants(toSync);setTimeout(function(){alert(toSync.length+' registros enviados a Google Sheets');},2000);
 }
 
 function renderExport(){
-  const db=getMergedDb();
+  const db=getMerged();
   document.getElementById('ex-total').textContent=db.plants.length;
   const spc=[...new Set(db.plants.map(p=>(p.species||'').toLowerCase().trim()).filter(Boolean))];
   document.getElementById('ex-spc').textContent=spc.length;
-  const rws=[...new Set(db.plants.map(p=>p.rowId))];
-  document.getElementById('ex-rows').textContent=rws.length;
-  document.getElementById('export-banner').innerHTML=pending.length?`<div class="alert alert-amber" style="margin-bottom:14px">⏳ ${pending.length} pendiente(s)</div>`:`<div class="alert alert-green" style="margin-bottom:14px">✅ Todo sincronizado</div>`;
+  const actL=[...new Set(db.plants.map(p=>p.lineaId))];
+  document.getElementById('ex-lineas').textContent=actL.length;
+  document.getElementById('export-banner').innerHTML=pending.length?'<div class="alert alert-amber" style="margin-bottom:14px">'+pending.length+' pendiente(s)</div>':'<div class="alert alert-green" style="margin-bottom:14px">Todo sincronizado</div>';
   const by={};
-  db.plants.forEach(p=>{const k=p.species||'Sin nombre';if(!by[k])by[k]={total:0,rows:new Set(),prices:[]};by[k].total+=parseInt(p.qty)||1;by[k].rows.add(p.rowId);if(p.price)by[k].prices.push(parseFloat(p.price));});
+  db.plants.forEach(p=>{const k=p.species||'Sin nombre';if(!by[k])by[k]={total:0,lineas:new Set(),prices:[]};by[k].total+=parseInt(p.qty)||1;by[k].lineas.add(p.lineaId);if(p.price)by[k].prices.push(parseFloat(p.price));});
   const entries=Object.entries(by).sort((a,b)=>b[1].total-a[1].total);
-  document.getElementById('exp-summary').innerHTML=entries.map(([name,d])=>{
-    const rn=[...d.rows].map(rid=>{const r=db.rows.find(x=>x.id===rid);return r?r.name:rid;}).join(', ');
+  document.getElementById('exp-summary').innerHTML=entries.map(function(e){
+    const name=e[0];const d=e[1];
+    const ln=[...d.lineas].map(lid=>getLineaName(lid)).join(', ');
     const avg=d.prices.length?'$'+(d.prices.reduce((a,b)=>a+b,0)/d.prices.length).toFixed(2):'sin precio';
-    return`<div class="export-card"><div style="font-size:14px;font-weight:600;margin-bottom:4px">🌳 ${name}</div><div style="font-size:12px;color:var(--text3)">Cant: <b>${d.total}</b> · ${rn} · Precio: <b>${avg}</b></div></div>`;
+    return '<div class="export-card"><div style="font-size:14px;font-weight:600;margin-bottom:4px">'+name+'</div><div style="font-size:12px;color:var(--text3)">Cant: '+d.total+' - '+ln+' - Precio: '+avg+'</div></div>';
   }).join('');
 }
 
 function exportCSV(){
-  const db=getMergedDb();
+  const db=getMerged();
   if(!db.plants.length){alert('Sin registros.');return;}
-  const H=['ID','Surco','Posicion','Especie','Nombre_Cientifico','Altura','Spread','Cantidad','Calidad','Precio','Origen','Notas','Fecha'];
-  const rows=db.plants.map(p=>{const r=db.rows.find(x=>x.id===p.rowId);return[p.id,r?r.name:'',p.position,p.species,p.sciName,p.height,p.spread,p.qty,p.quality,p.price,p.origin,p.notes,p.ts].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',');});
-  const blob=new Blob(['\uFEFF'+[H.join(','),...rows].join('\n')],{type:'text/csv;charset=utf-8'});
+  const H=['ID','Bloque','Linea','Posicion','Especie','Nombre_Cientifico','Altura','Spread','Cantidad','Calidad','Precio','Origen','Notas','Fecha'];
+  const rows=db.plants.map(function(p){
+    const l=db.lineas.find(x=>x.id===p.lineaId);
+    const b=l?db.bloques.find(x=>x.id===l.bloqueId):null;
+    return[p.id,b?b.name:'',l?'Linea '+l.num:'',p.position,p.species,p.sciName,p.height,p.spread,p.qty,p.quality,p.price,p.origin,p.notes,p.ts].map(function(v){return'"'+String(v||'').replace(/"/g,'""')+'"';}).join(',');
+  });
+  const blob=new Blob(['﻿'+[H.join(',')].concat(rows).join('
+')],{type:'text/csv;charset=utf-8'});
   const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='linus-biome-'+new Date().toISOString().slice(0,10)+'.csv';a.click();
-  setTimeout(()=>URL.revokeObjectURL(url),2000);
+  setTimeout(function(){URL.revokeObjectURL(url);},2000);
 }
 
 function openEdit(id){
-  const db=getMergedDb();
+  const db=getMerged();
   const p=db.plants.find(x=>x.id===id);if(!p)return;
   currentQE=p.quality||'';
   document.getElementById('edit-id').value=id;
-  const rs=document.getElementById('e-row');
-  rs.innerHTML=db.rows.map(r=>`<option value="${r.id}">${r.name}</option>`).join('');
-  rs.value=p.rowId;
+  const bs=document.getElementById('e-bloque');
+  bs.innerHTML=db.bloques.map(b=>'<option value="'+b.id+'">'+b.name+'</option>').join('');
+  const linea=db.lineas.find(l=>l.id===p.lineaId);
+  if(linea){bs.value=linea.bloqueId;updateLineasSelectEdit();document.getElementById('e-linea').value=p.lineaId;}
   document.getElementById('e-pos').value=p.position||'';
   document.getElementById('e-species').value=p.species||'';
   document.getElementById('e-sci').value=p.sciName||'';
@@ -549,7 +574,7 @@ function openEdit(id){
   if(p.quality==='Standard')document.getElementById('eq-s').classList.add('sel');
   if(p.quality==='Segunda')document.getElementById('eq-2').classList.add('sel');
   const spc=[...new Set(db.plants.map(x=>x.species).filter(Boolean))];
-  document.getElementById('sdl2').innerHTML=spc.map(s=>`<option value="${s}">`).join('');
+  document.getElementById('sdl2').innerHTML=spc.map(s=>'<option value="'+s+'">').join('');
   document.getElementById('edit-modal').classList.remove('hidden');
 }
 
@@ -557,28 +582,20 @@ function closeModal(){document.getElementById('edit-modal').classList.add('hidde
 
 function saveEdit(){
   const id=document.getElementById('edit-id').value;
-  // Check if it's a user plant
+  const updated={lineaId:document.getElementById('e-linea').value,position:document.getElementById('e-pos').value.trim(),species:document.getElementById('e-species').value.trim(),sciName:document.getElementById('e-sci').value.trim(),height:document.getElementById('e-height').value.trim(),spread:document.getElementById('e-spread').value.trim(),qty:parseInt(document.getElementById('e-qty').value)||1,quality:currentQE,price:document.getElementById('e-price').value,origin:document.getElementById('e-origin').value,notes:document.getElementById('e-notes').value.trim(),updatedAt:new Date().toISOString()};
   const idx=userDb.plants.findIndex(p=>p.id===id);
-  const updated={rowId:document.getElementById('e-row').value,position:document.getElementById('e-pos').value.trim(),species:document.getElementById('e-species').value.trim(),sciName:document.getElementById('e-sci').value.trim(),height:document.getElementById('e-height').value.trim(),spread:document.getElementById('e-spread').value.trim(),qty:parseInt(document.getElementById('e-qty').value)||1,quality:currentQE,price:document.getElementById('e-price').value,origin:document.getElementById('e-origin').value,notes:document.getElementById('e-notes').value.trim(),updatedAt:new Date().toISOString()};
-  if(idx>=0){
-    userDb.plants[idx]={...userDb.plants[idx],...updated};
-  } else {
-    // Master plant edited — copy to user with same ID
-    const db=getMergedDb();
-    const master=db.plants.find(p=>p.id===id);
-    if(master) userDb.plants.push({...master,...updated});
-  }
+  if(idx>=0){userDb.plants[idx]=Object.assign({},userDb.plants[idx],updated);}
+  else{const db=getMerged();const master=db.plants.find(p=>p.id===id);if(master)userDb.plants.push(Object.assign({},master,updated));}
   saveUser();
   if(!pending.includes(id)){pending.push(id);savePend();}
-  const db2=getMergedDb();
-  const plant=db2.plants.find(p=>p.id===id);
+  const db2=getMerged();const plant=db2.plants.find(p=>p.id===id);
   if(plant)syncPlants([plant]);
   closeModal();render();showScreen('home');
 }
 
 function clearConfirm(){
-  if(confirm('¿Borrar solo los registros nuevos que capturaste?\n\nLos datos originales (A-O) NO se borran.')){
-    userDb={rows:[],plants:[]};pending=[];
+  if(confirm('Borrar solo los registros nuevos? Los datos originales NO se borran.')){
+    userDb={bloques:[],lineas:[],plants:[]};pending=[];
     localStorage.removeItem(USER_KEY);localStorage.removeItem(PEND_KEY);
     init();showScreen('home');
   }
