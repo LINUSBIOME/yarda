@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>LB Test</title></head>
+<body style="font-family:sans-serif;padding:20px;background:#f0faf7">
+<h2 style="color:#1D9E75">Linus-Biome Test</h2>
+<div id="out" style="font-size:18px;margin-top:20px">Cargando...</div>
+<script>
+var DATA = {"bloques":[{"id":"bA","label":"A"}],"plants":[{"species":"Red Maple","qty":113},{"species":"Norway Spruce","qty":25}]};
+var el = document.getElementById('out');
+el.innerHTML = '<b>Bloques:</b> ' + DATA.bloques.length + '<br><b>Plantas:</b> ' + DATA.plants.length + '<br><b>Primera especie:</b> ' + DATA.plants[0].species;
+el.style.color = '#0F6E56';
+</script>
+</body>
+</html>
