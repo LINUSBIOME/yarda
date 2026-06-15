@@ -353,7 +353,7 @@ function renderBloques(db){
     const plants=db.plants.filter(p=>lineas.some(l=>l.id===p.lineaId));
     const hasData=plants.length>0;
     const spc=[...new Set(plants.map(p=>p.species).filter(Boolean))].length;
-    return '<div class="bloque-card '+(hasData?'has-data':'')+'" onclick="showBloqueDetail(''+b.id+'')">'
+    return '<div class="bloque-card '+(hasData?'has-data':'')+'" onclick="showBloqueDetail(&quot;'+b.id+'&quot;)">'
       +'<div><div class="bloque-label">Bloque '+b.label+'</div>'
       +'<div class="bloque-info">'+lineas.length+' lineas &middot; '+plants.length+' plantas &middot; '+spc+' especies</div></div>'
       +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">'
@@ -373,7 +373,7 @@ function showBloqueDetail(bloqueId){
   const grid=document.getElementById('lineas-grid');
   grid.innerHTML=lineas.map(l=>{
     const cnt=db.plants.filter(p=>p.lineaId===l.id).length;
-    return '<div class="linea-tile '+(cnt?'has-data':'')+'" onclick="showLineaDetail(''+l.id+'')"><div class="linea-num">'+l.num+'</div><div class="linea-cnt">'+cnt+' pl.</div></div>';
+    return '<div class="linea-tile '+(cnt?'has-data':'')+'" onclick="showLineaDetail(&quot;'+l.id+'&quot;)"><div class="linea-num">'+l.num+'</div><div class="linea-cnt">'+cnt+' pl.</div></div>';
   }).join('');
   showScreen('bloque');
   document.getElementById('topbar-sub').textContent=bloque.name;
@@ -422,7 +422,7 @@ function plantCard(p,db){
     +(p.qty>1?'<span>x'+p.qty+'</span>':'')
     +(p.price?'<span class="price-tag">$'+parseFloat(p.price).toFixed(2)+'</span>':'<span style="color:var(--text3);font-style:italic">sin precio</span>')
     +'</div>'
-    +'<div class="card-actions"><button class="btn btn-ghost btn-sm" onclick="openEdit(''+p.id+'')">Editar</button></div>'
+    +'<div class="card-actions"><button class="btn btn-ghost btn-sm" onclick="openEdit(&quot;'+p.id+'&quot;)">Editar</button></div>'
     +'</div></div>';
 }
 
@@ -602,7 +602,4 @@ function clearConfirm(){
 }
 
 document.getElementById('edit-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-init();
-</script>
-</body>
-</html>
+ini
