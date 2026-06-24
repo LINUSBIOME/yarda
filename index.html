@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#1D9E75">
-<title>Linus-Biome Yarda</title>
+<title>Linus-Biome Yard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--g:#1D9E75;--gd:#0F6E56;--gl:#E1F5EE;--gx:#f0faf7;--a:#BA7517;--al:#FAEEDA;--b:#185FA5;--bl:#E6F1FB;--gr:#5F5E5A;--grl:#F1EFE8;--r:#A32D2D;--rl:#FCEBEB;--t:#1a1a18;--t2:#5a5a56;--t3:#9a9a94;--bd:#e8e8e4;--bg:#f6f6f2;--c:#fff;--rad:12px;--rs:8px;--sh:0 1px 3px rgba(0,0,0,.08);--fn:'DM Sans',system-ui,sans-serif}
@@ -21,6 +21,7 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
 .sd.ok{background:#a8f0d8}.sd.pend{background:#FAC775;animation:pu 1.2s infinite}.sd.err{background:#F09595}
 @keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
 .tbtn{background:rgba(255,255,255,.2);border:none;border-radius:var(--rs);padding:8px 12px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fn)}
+.tbtn:active{background:rgba(255,255,255,.35)}
 .sc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px}
 .sc::-webkit-scrollbar{display:none}
 .bn{background:var(--c);border-top:1px solid var(--bd);display:flex;flex-shrink:0;padding-bottom:env(safe-area-inset-bottom)}
@@ -49,11 +50,12 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
 .cth img{width:100%;height:100%;object-fit:cover}
 .cbd{flex:1;min-width:0}.ct{font-size:14px;font-weight:600;color:var(--t)}
 .cm{font-size:11px;color:var(--t3);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px}
-.ca{margin-top:8px}
+.ca{margin-top:8px;display:flex;gap:6px}
 .bdg{display:inline-flex;align-items:center;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:600;vertical-align:middle}
-.bg{background:var(--gl);color:var(--gd)}.bb{background:var(--bl);color:var(--b)}.bgr{background:var(--grl);color:var(--gr)}.ba{background:var(--al);color:var(--a)}
+.bg{background:var(--gl);color:var(--gd)}.bb{background:var(--bl);color:var(--b)}.bgr{background:var(--grl);color:var(--gr)}.ba{background:var(--al);color:var(--a)}.br2{background:var(--rl);color:var(--r)}
 .fw{background:var(--c);border:1px solid var(--bd);border-radius:var(--rad);padding:16px;margin-bottom:12px;box-shadow:var(--sh)}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .fi{margin-bottom:14px}.fi:last-child{margin-bottom:0}
 .fi label{display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:5px}
 .fi input,.fi select,.fi textarea{width:100%;padding:11px 13px;border:1.5px solid var(--bd);border-radius:var(--rs);font-size:14px;font-family:var(--fn);color:var(--t);background:var(--bg);outline:none;-webkit-appearance:none}
@@ -67,12 +69,14 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
 .pz input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
 .pzi{font-size:36px;margin-bottom:8px}.pzt{font-size:13px;color:var(--t3);font-weight:500}
 .pr{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.pt{width:72px;height:72px;border-radius:var(--rs);object-fit:cover;border:1.5px solid var(--bd)}
+.ptimg{width:72px;height:72px;border-radius:var(--rs);object-fit:cover;border:1.5px solid var(--bd)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 20px;border-radius:var(--rs);font-size:14px;font-weight:600;font-family:var(--fn);cursor:pointer;border:1.5px solid var(--bd);background:var(--c);color:var(--t);width:100%}
 .btn:active{transform:scale(.98)}.btnp{background:var(--g);border-color:var(--g);color:#fff}
 .btng{background:transparent;border-color:var(--bd);color:var(--t2)}
-.btns{padding:7px 12px;font-size:12px;width:auto}.btnr{color:var(--r);border-color:var(--rl)}
-.br{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.btns{padding:7px 12px;font-size:12px;width:auto}
+.btnr{color:var(--r);border-color:var(--rl)}
+.btnd{background:var(--rl);border-color:var(--r);color:var(--r)}
+.brow{display:flex;flex-direction:column;gap:8px;margin-top:16px}
 .bk{display:flex;align-items:center;gap:8px;margin-bottom:14px;cursor:pointer;color:var(--t2)}
 .bk svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
 .bk span{font-size:13px;font-weight:600}
@@ -87,14 +91,24 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
 .ec{background:var(--c);border:1px solid var(--bd);border-radius:var(--rad);padding:14px;margin-bottom:10px;box-shadow:var(--sh)}
 .pt2{font-size:14px;font-weight:600;color:var(--g)}
 .dh{background:var(--c);border:1px solid var(--bd);border-radius:var(--rad);padding:14px;margin-bottom:14px;box-shadow:var(--sh)}
-.sb{width:100%;padding:11px 13px;border:1.5px solid var(--bd);border-radius:var(--rs);font-size:14px;font-family:var(--fn);color:var(--t);background:var(--c);outline:none;margin-bottom:14px}
+.sb{width:100%;padding:11px 13px;border:1.5px solid var(--bd);border-radius:var(--rs);font-size:14px;font-family:var(--fn);color:var(--t);background:var(--c);outline:none;margin-bottom:10px}
 .sb:focus{border-color:var(--g)}
+.sf{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.sf select{padding:9px 13px;border:1.5px solid var(--bd);border-radius:var(--rs);font-size:13px;font-family:var(--fn);color:var(--t);background:var(--c);outline:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a56' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:30px}
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:flex;align-items:flex-end;justify-content:center}
 .mo.h{display:none}
 .md{background:var(--c);border-radius:var(--rad) var(--rad) 0 0;width:100%;max-width:900px;max-height:90dvh;overflow-y:auto;padding:20px 16px 32px}
 .mh{width:40px;height:4px;background:var(--bd);border-radius:2px;margin:0 auto 16px}
 .mt{font-size:16px;font-weight:600;margin-bottom:16px}
-.loading{text-align:center;padding:60px 20px;color:var(--t3);font-size:16px}
+.print-only{display:none}
+@media print{
+  .top,.bn,.ca,.mo,.tbtn,.sd{display:none!important}
+  .screen{display:block!important}
+  .print-only{display:block}
+  body{overflow:visible}
+  .app{height:auto}
+  .sc{overflow:visible}
+}
 </style>
 </head>
 <body>
@@ -102,617 +116,743 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
 <div class="top">
   <div class="tl">
     <div class="tlogo">&#127795;</div>
-    <div><div class="ttitle">Linus-Biome</div><div class="tsub" id="tsub">Cargando...</div></div>
+    <div><div class="ttitle">Linus-Biome</div><div class="tsub" id="tsub">Loading...</div></div>
   </div>
   <div class="tr">
     <div class="sd" id="sd"></div>
-    <button class="tbtn" onclick="nav('add')">+ Registrar</button>
+    <button class="tbtn" onclick="nav('add')">+ Add Plant</button>
   </div>
 </div>
 
+<!-- HOME -->
 <div class="screen on sc" id="s-home">
-  <div class="loading" id="loading">&#127807; Cargando inventario...</div>
+  <div id="loading" style="text-align:center;padding:60px 20px;color:var(--t3);font-size:16px">&#127807; Loading inventory...</div>
   <div id="home-content" style="display:none">
     <div class="sg">
-      <div class="sc2"><div class="sn" id="hp">0</div><div class="sl">plantas</div></div>
-      <div class="sc2"><div class="sn" id="hs">0</div><div class="sl">especies</div></div>
-      <div class="sc2"><div class="sn" id="hl">0</div><div class="sl">lineas activas</div></div>
+      <div class="sc2"><div class="sn" id="hp">0</div><div class="sl">plants</div></div>
+      <div class="sc2"><div class="sn" id="hs">0</div><div class="sl">species</div></div>
+      <div class="sc2"><div class="sn" id="hl">0</div><div class="sl">active lines</div></div>
     </div>
     <div id="hbanner"></div>
-    <div class="lbl">bloques</div>
+    <div class="lbl">blocks</div>
     <div id="blist"></div>
   </div>
 </div>
 
+<!-- BLOCK DETAIL -->
 <div class="screen sc" id="s-bloque">
-  <div class="bk" onclick="nav('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Bloques</span></div>
+  <div class="bk" onclick="nav('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Blocks</span></div>
   <div class="dh"><div style="font-size:20px;font-weight:600" id="bdn"></div><div style="font-size:12px;color:var(--t3);margin-top:4px" id="bdm"></div></div>
-  <div class="lbl">lineas</div>
+  <div class="lbl">lines</div>
   <div class="lg" id="lgrid"></div>
   <div style="text-align:center;margin-bottom:20px">
-    <button class="btn btng" style="width:auto;padding:8px 16px;font-size:12px" onclick="addLinea()">+ agregar linea</button>
+    <button class="btn btng" style="width:auto;padding:8px 16px;font-size:12px" onclick="addLinea()">+ Add Line</button>
   </div>
 </div>
 
+<!-- LINE DETAIL -->
 <div class="screen sc" id="s-linea">
-  <div class="bk" id="lbk"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span id="lbklbl">Bloque</span></div>
-  <div class="dh"><div style="font-size:20px;font-weight:600" id="ldn"></div><div style="font-size:12px;color:var(--t3);margin-top:4px" id="ldm"></div></div>
-  <button class="btn btnp btns" style="margin-bottom:14px" onclick="quickAdd()">+ Anadir planta aqui</button>
-  <div class="lbl">especies</div>
+  <div class="bk" id="lbk"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span id="lbklbl">Block</span></div>
+  <div class="dh">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:20px;font-weight:600" id="ldn"></div>
+      <button class="btn btng btns" onclick="printLine()">&#128438; Print</button>
+    </div>
+    <div style="font-size:12px;color:var(--t3);margin-top:4px" id="ldm"></div>
+  </div>
+  <button class="btn btnp btns" style="margin-bottom:14px" onclick="quickAdd()">+ Add Plant Here</button>
+  <div class="lbl">species present</div>
   <div class="ch" id="lch"></div>
-  <div class="lbl">plantas</div>
+  <div class="lbl">plants</div>
   <div id="lpl"></div>
   <div style="height:16px"></div>
 </div>
 
+<!-- SEARCH -->
 <div class="screen sc" id="s-search">
-  <input class="sb" id="si" placeholder="Buscar especie, bloque, linea..." oninput="doSearch()">
+  <input class="sb" id="si" placeholder="Search by common name, species, block, line, caliper, size..." oninput="doSearch()">
+  <div class="sf">
+    <select id="sf-block" onchange="doSearch()">
+      <option value="">All Blocks</option>
+      <option value="bA">Block A</option>
+      <option value="bB">Block B</option>
+      <option value="bC">Block C</option>
+      <option value="bD">Block D</option>
+      <option value="bE">Block E</option>
+    </select>
+    <select id="sf-quality" onchange="doSearch()">
+      <option value="">All Quality</option>
+      <option value="Premium">Premium</option>
+      <option value="Standard">Standard</option>
+      <option value="Segunda">Second</option>
+    </select>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div style="font-size:12px;color:var(--t3)" id="search-count"></div>
+    <button class="btn btng btns" onclick="printSearch()">&#128438; Print Results</button>
+  </div>
   <div id="sr"></div>
 </div>
 
+<!-- ADD PLANT -->
 <div class="screen sc" id="s-add">
-  <div class="bk" onclick="nav('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Inicio</span></div>
-  <div class="al ala">Precio opcional - editalo despues con Editar</div>
+  <div class="bk" onclick="nav('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Home</span></div>
+  <div class="al ala">Price is optional — edit it later with the Edit button</div>
   <div class="fw">
-    <div class="lbl" style="margin-top:0">ubicacion</div>
+    <div class="lbl" style="margin-top:0">Location</div>
     <div class="fr">
-      <div class="fi"><label>Bloque</label><select id="fb" onchange="updLS()"></select></div>
-      <div class="fi"><label>Linea</label><select id="fl"></select></div>
+      <div class="fi"><label>Block</label><select id="fb" onchange="updLS()"></select></div>
+      <div class="fi"><label>Line</label><select id="fl"></select></div>
     </div>
-    <div class="fi"><label>Posicion (opcional)</label><input type="text" id="fpos" placeholder="Ej. 3"></div>
+    <div class="fi"><label>Position in line (optional)</label><input type="text" id="fpos" placeholder="e.g. 3"></div>
   </div>
   <div class="fw">
-    <div class="lbl" style="margin-top:0">especie</div>
-    <div class="fi"><label>Nombre comun</label><input type="text" id="fsp" placeholder="Red Maple..." list="sdl" autocomplete="off"><datalist id="sdl"></datalist></div>
-    <div class="fi"><label>Nombre cientifico</label><input type="text" id="fsc" placeholder="Acer rubrum"></div>
+    <div class="lbl" style="margin-top:0">Identification</div>
+    <div class="fi"><label>Common Name</label><input type="text" id="fcn" placeholder="e.g. Red Maple, Norway Spruce..." list="sdl-cn" autocomplete="off"><datalist id="sdl-cn"></datalist></div>
+    <div class="fi"><label>Species (Scientific Name)</label><input type="text" id="fsp" placeholder="e.g. Acer rubrum" list="sdl-sp" autocomplete="off"><datalist id="sdl-sp"></datalist></div>
   </div>
   <div class="fw">
-    <div class="lbl" style="margin-top:0">tamano y cantidad</div>
-    <div class="fr">
-      <div class="fi"><label>Altura</label><input type="text" id="fh" placeholder="6ft"></div>
-      <div class="fi"><label>Spread</label><input type="text" id="fsp2" placeholder="4ft"></div>
+    <div class="lbl" style="margin-top:0">Size & Quantity</div>
+    <div class="fr3">
+      <div class="fi"><label>Height / Size</label><input type="text" id="fh" placeholder="e.g. 6ft, 8-10ft"></div>
+      <div class="fi"><label>Caliper</label><input type="text" id="fcal" placeholder='e.g. 2.5"'></div>
+      <div class="fi"><label>Spread</label><input type="text" id="fsp2" placeholder="e.g. 4ft"></div>
     </div>
-    <div class="fi"><label>Cantidad</label><input type="number" id="fq" value="1" min="1"></div>
+    <div class="fi"><label>Quantity</label><input type="number" id="fq" value="1" min="1"></div>
   </div>
   <div class="fw">
-    <div class="lbl" style="margin-top:0">calidad</div>
+    <div class="lbl" style="margin-top:0">Quality</div>
     <div class="qg">
       <div class="qo" id="qa-p" onclick="selQ('Premium')">&#11088;<br>Premium</div>
       <div class="qo" id="qa-s" onclick="selQ('Standard')">&#10003;<br>Standard</div>
-      <div class="qo" id="qa-2" onclick="selQ('Segunda')">&#8595;<br>Segunda</div>
+      <div class="qo" id="qa-2" onclick="selQ('Segunda')">&#8595;<br>Second</div>
     </div>
   </div>
   <div class="fw">
-    <div class="lbl" style="margin-top:0">precio y origen</div>
+    <div class="lbl" style="margin-top:0">Pricing & Origin</div>
     <div class="fr">
-      <div class="fi"><label>Precio ($)</label><input type="number" id="fpr" placeholder="0.00" step="0.01"></div>
-      <div class="fi"><label>Origen</label>
-        <select id="forr"><option value="">elegir</option><option>Tidbury Creek</option><option>ANT Nursery</option><option>Southeastern Growers</option><option>Linus-Biome (propio)</option></select>
-      </div>
+      <div class="fi"><label>Sale Price ($)</label><input type="number" id="fpr" placeholder="0.00" step="0.01"></div>
+      <div class="fi"><label>Purchase Price ($)</label><input type="number" id="fppr" placeholder="0.00" step="0.01"></div>
+    </div>
+    <div class="fi"><label>Origin / Supplier</label>
+      <select id="forr">
+        <option value="">-- select --</option>
+        <option>Linus-Biome (own)</option>
+        <option>Tidbury Creek</option>
+        <option>ANT Nursery</option>
+        <option>Southeastern Growers</option>
+        <option>Other supplier</option>
+      </select>
     </div>
   </div>
-  <div class="fw"><div class="lbl" style="margin-top:0">notas</div><div class="fi"><textarea id="fno" placeholder="Estado, defectos, observaciones..."></textarea></div></div>
+  <div class="fw"><div class="lbl" style="margin-top:0">Notes</div><div class="fi"><textarea id="fno" placeholder="Health status, defects, observations..."></textarea></div></div>
   <div class="fw">
-    <div class="lbl" style="margin-top:0">foto</div>
-    <div class="pz"><input type="file" accept="image/*" capture="environment" multiple onchange="addPhotos(event)"><div class="pzi">&#128247;</div><div class="pzt">Toca para fotografiar</div></div>
+    <div class="lbl" style="margin-top:0">Photo</div>
+    <div class="pz"><input type="file" accept="image/*" capture="environment" multiple onchange="addPhotos(event)"><div class="pzi">&#128247;</div><div class="pzt">Tap to take photo</div></div>
     <div class="pr" id="fph"></div>
   </div>
-  <div class="br">
-    <button class="btn btnp" onclick="savePlant()">Guardar y sincronizar</button>
-    <button class="btn btng" onclick="nav('home')">Cancelar</button>
+  <div class="brow">
+    <button class="btn btnp" onclick="savePlant()">&#10003; Save & Sync</button>
+    <button class="btn btng" onclick="nav('home')">Cancel</button>
   </div>
   <div style="height:20px"></div>
 </div>
 
+<!-- EXPORT -->
 <div class="screen sc" id="s-export">
-  <div class="bk" onclick="nav('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Inicio</span></div>
+  <div class="bk" onclick="nav('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Home</span></div>
   <div class="sg">
-    <div class="sc2"><div class="sn" id="ep">0</div><div class="sl">plantas</div></div>
-    <div class="sc2"><div class="sn" id="es2">0</div><div class="sl">especies</div></div>
-    <div class="sc2"><div class="sn" id="el">0</div><div class="sl">lineas</div></div>
+    <div class="sc2"><div class="sn" id="ep">0</div><div class="sl">plants</div></div>
+    <div class="sc2"><div class="sn" id="es2">0</div><div class="sl">species</div></div>
+    <div class="sc2"><div class="sn" id="el">0</div><div class="sl">lines</div></div>
   </div>
   <div id="exbanner"></div>
-  <div class="lbl">resumen por especie</div>
+  <div class="lbl">summary by species</div>
   <div id="exsum"></div>
-  <div class="br" style="margin-top:4px">
-    <button class="btn btnp" onclick="syncAll()">Sincronizar con Google Sheets</button>
-    <button class="btn btng" onclick="exportCSV()">Descargar CSV</button>
-    <button class="btn btng btnr" onclick="clearNew()">Borrar datos nuevos</button>
+  <div class="brow" style="margin-top:4px">
+    <button class="btn btnp" onclick="syncAll()">&#9729; Sync with Google Sheets</button>
+    <button class="btn btng" onclick="exportCSV()">&#128229; Download CSV</button>
+    <button class="btn btng" onclick="printExport()">&#128438; Print Summary</button>
+    <button class="btn btng btnr" onclick="clearNew()">&#128465; Clear New Data</button>
   </div>
   <div style="height:20px"></div>
 </div>
 
+<!-- BOTTOM NAV -->
 <div class="bn">
   <button class="bi on" id="nb-home" onclick="nav('home')">
-    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Inicio
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home
   </button>
   <button class="bi" id="nb-search" onclick="nav('search')">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Buscar
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search
   </button>
   <button class="bi" id="nb-add" onclick="nav('add')">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Registrar
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Register
   </button>
   <button class="bi" id="nb-export" onclick="nav('export')">
-    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Exportar
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export
   </button>
 </div>
 </div>
 
+<!-- EDIT MODAL -->
 <div class="mo h" id="em">
   <div class="md">
     <div class="mh"></div>
-    <div class="mt">Editar registro</div>
+    <div class="mt">&#9998; Edit Record</div>
     <input type="hidden" id="eid">
     <div class="fw" style="margin-bottom:10px">
       <div class="fr">
-        <div class="fi"><label>Bloque</label><select id="eb" onchange="updLSE()"></select></div>
-        <div class="fi"><label>Linea</label><select id="el2"></select></div>
+        <div class="fi"><label>Block</label><select id="eb" onchange="updLSE()"></select></div>
+        <div class="fi"><label>Line</label><select id="el2"></select></div>
       </div>
-      <div class="fi"><label>Posicion</label><input type="text" id="epos"></div>
-      <div class="fi"><label>Especie</label><input type="text" id="esp" list="sdl2"><datalist id="sdl2"></datalist></div>
-      <div class="fi"><label>Nombre cientifico</label><input type="text" id="esc"></div>
+      <div class="fi"><label>Position</label><input type="text" id="epos"></div>
     </div>
     <div class="fw" style="margin-bottom:10px">
-      <div class="fr">
-        <div class="fi"><label>Altura</label><input type="text" id="eh"></div>
+      <div class="fi"><label>Common Name</label><input type="text" id="ecn" list="sdl-cn2"><datalist id="sdl-cn2"></datalist></div>
+      <div class="fi"><label>Species (Scientific Name)</label><input type="text" id="esp"></div>
+    </div>
+    <div class="fw" style="margin-bottom:10px">
+      <div class="fr3">
+        <div class="fi"><label>Height / Size</label><input type="text" id="eh"></div>
+        <div class="fi"><label>Caliper</label><input type="text" id="ecal"></div>
         <div class="fi"><label>Spread</label><input type="text" id="esp2"></div>
       </div>
-      <div class="fi"><label>Cantidad</label><input type="number" id="eq" min="1"></div>
+      <div class="fi"><label>Quantity</label><input type="number" id="eq" min="1"></div>
     </div>
     <div class="fw" style="margin-bottom:10px">
-      <div class="lbl" style="margin-top:0">calidad</div>
+      <div class="lbl" style="margin-top:0">Quality</div>
       <div class="qg">
         <div class="qo" id="qe-p" onclick="selQE('Premium')">&#11088;<br>Premium</div>
         <div class="qo" id="qe-s" onclick="selQE('Standard')">&#10003;<br>Standard</div>
-        <div class="qo" id="qe-2" onclick="selQE('Segunda')">&#8595;<br>Segunda</div>
+        <div class="qo" id="qe-2" onclick="selQE('Segunda')">&#8595;<br>Second</div>
       </div>
     </div>
     <div class="fw" style="margin-bottom:10px">
       <div class="fr">
-        <div class="fi"><label>Precio ($)</label><input type="number" id="epr" placeholder="0.00" step="0.01"></div>
-        <div class="fi"><label>Origen</label>
-          <select id="eor"><option value="">elegir</option><option>Tidbury Creek</option><option>ANT Nursery</option><option>Southeastern Growers</option><option>Linus-Biome (propio)</option></select>
-        </div>
+        <div class="fi"><label>Sale Price ($)</label><input type="number" id="epr" placeholder="0.00" step="0.01"></div>
+        <div class="fi"><label>Purchase Price ($)</label><input type="number" id="eppr" placeholder="0.00" step="0.01"></div>
       </div>
-      <div class="fi"><label>Notas</label><textarea id="en"></textarea></div>
+      <div class="fi"><label>Origin / Supplier</label>
+        <select id="eor">
+          <option value="">-- select --</option>
+          <option>Linus-Biome (own)</option>
+          <option>Tidbury Creek</option>
+          <option>ANT Nursery</option>
+          <option>Southeastern Growers</option>
+          <option>Other supplier</option>
+        </select>
+      </div>
+      <div class="fi"><label>Notes</label><textarea id="en"></textarea></div>
     </div>
-    <div class="br">
-      <button class="btn btnp" onclick="saveEdit()">Guardar cambios</button>
-      <button class="btn btng" onclick="closeM()">Cancelar</button>
+    <div class="brow">
+      <button class="btn btnp" onclick="saveEdit()">&#10003; Save Changes</button>
+      <button class="btn btnd btns" onclick="deleteRecord()">&#128465; Delete</button>
+      <button class="btn btng" onclick="closeM()">Cancel</button>
     </div>
   </div>
 </div>
 
 <script>
 var SU = 'https://script.google.com/macros/s/AKfycbxDI3nZTOftimCGXjni1KBOnJ6PXIm9gfFucPlJml6EWTbySoPMolZ4RHBCCFyHITyF/exec';
-var UK = 'lb_u5';
-var PK = 'lb_p5';
+var UK = 'lb_u6'; var PK = 'lb_p6';
 var MD = null;
 var udb = {bloques:[], lineas:[], plants:[]};
 var pend = [];
-var cq = '';
-var cqe = '';
-var cphotos = [];
-var abid = null;
-var alid = null;
+var cq = ''; var cqe = ''; var cphotos = [];
+var abid = null; var alid = null;
 
 function loadData() {
-  fetch('data.json?v=1')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
+  fetch('data.json?v=2')
+    .then(function(r){return r.json();})
+    .then(function(data){
       MD = data;
-      try { var s = localStorage.getItem(UK); if(s) udb = JSON.parse(s); } catch(e) {}
-      try { var p = localStorage.getItem(PK); if(p) pend = JSON.parse(p); } catch(e) {}
-      if(!udb.bloques) udb = {bloques:[], lineas:[], plants:[]};
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('home-content').style.display = 'block';
+      try{var s=localStorage.getItem(UK);if(s)udb=JSON.parse(s);}catch(e){}
+      try{var p=localStorage.getItem(PK);if(p)pend=JSON.parse(p);}catch(e){}
+      if(!udb.bloques)udb={bloques:[],lineas:[],plants:[]};
+      document.getElementById('loading').style.display='none';
+      document.getElementById('home-content').style.display='block';
+      document.getElementById('tsub').textContent='Inventory - Main Yard';
       render();
-      setSd(pend.length ? 'pend' : 'ok');
-      document.getElementById('tsub').textContent = 'Inventario - Yarda Principal';
+      setSd(pend.length?'pend':'ok');
     })
-    .catch(function(e) {
-      document.getElementById('loading').textContent = 'Error cargando datos: ' + e.message;
+    .catch(function(e){
+      document.getElementById('loading').textContent='Error loading data: '+e.message;
     });
 }
 
-function su() { try { localStorage.setItem(UK, JSON.stringify(udb)); } catch(e) {} }
-function sp() { try { localStorage.setItem(PK, JSON.stringify(pend)); } catch(e) {} }
+function su(){try{localStorage.setItem(UK,JSON.stringify(udb));}catch(e){}}
+function sp(){try{localStorage.setItem(PK,JSON.stringify(pend));}catch(e){}}
 
-function gm() {
-  if(!MD) return {bloques:[], lineas:[], plants:[]};
-  var bl = MD.bloques.slice();
-  var li = MD.lineas.slice();
-  var pl = MD.plants.slice();
-  udb.bloques.forEach(function(b) { if(!bl.find(function(x){return x.id===b.id;})) bl.push(b); });
-  udb.lineas.forEach(function(l) { if(!li.find(function(x){return x.id===l.id;})) li.push(l); });
-  udb.plants.forEach(function(p) {
-    var i = pl.findIndex(function(x){return x.id===p.id;});
-    if(i >= 0) pl[i] = p; else pl.push(p);
+function gm(){
+  if(!MD)return{bloques:[],lineas:[],plants:[]};
+  var bl=MD.bloques.slice(); var li=MD.lineas.slice(); var pl=MD.plants.slice();
+  udb.bloques.forEach(function(b){if(!bl.find(function(x){return x.id===b.id;}))bl.push(b);});
+  udb.lineas.forEach(function(l){if(!li.find(function(x){return x.id===l.id;}))li.push(l);});
+  udb.plants.forEach(function(p){
+    var i=pl.findIndex(function(x){return x.id===p.id;});
+    if(i>=0)pl[i]=p; else pl.push(p);
   });
-  return {bloques:bl, lineas:li, plants:pl};
+  // Remove deleted
+  udb.deleted = udb.deleted || [];
+  pl = pl.filter(function(p){return udb.deleted.indexOf(p.id)<0;});
+  return{bloques:bl,lineas:li,plants:pl};
 }
 
-function nav(n) {
+function nav(n){
   document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
-  var el = document.getElementById('s-'+n);
-  if(el) el.classList.add('on');
+  var el=document.getElementById('s-'+n); if(el)el.classList.add('on');
   ['home','search','add','export'].forEach(function(x){
-    var b = document.getElementById('nb-'+x);
-    if(b) b.classList.toggle('on', x===n);
+    var b=document.getElementById('nb-'+x); if(b)b.classList.toggle('on',x===n);
   });
-  var sub = {home:'Inventario - Yarda Principal',search:'Buscar',add:'Nuevo registro',export:'Exportar',bloque:'Detalle bloque',linea:'Detalle linea'};
-  document.getElementById('tsub').textContent = sub[n] || '';
-  if(n === 'add') initForm();
-  if(n === 'export') renderExp();
-  if(n === 'home') render();
-  if(n === 'search') { document.getElementById('si').value = ''; doSearch(); }
+  var sub={home:'Inventory - Main Yard',search:'Search',add:'New Record',export:'Export',bloque:'Block Detail',linea:'Line Detail'};
+  document.getElementById('tsub').textContent=sub[n]||'';
+  if(n==='add')initForm();
+  if(n==='export')renderExp();
+  if(n==='home')render();
+  if(n==='search'){document.getElementById('si').value='';doSearch();}
 }
 
-function render() {
-  var db = gm();
-  var spc = [];
-  db.plants.forEach(function(p) { var s = (p.species||'').toLowerCase().trim(); if(s && spc.indexOf(s)<0) spc.push(s); });
-  var al = [];
-  db.plants.forEach(function(p) { if(al.indexOf(p.lineaId)<0) al.push(p.lineaId); });
-  document.getElementById('hp').textContent = db.plants.length;
-  document.getElementById('hs').textContent = spc.length;
-  document.getElementById('hl').textContent = al.length;
+function render(){
+  var db=gm();
+  var spc=[];
+  db.plants.forEach(function(p){
+    var s=(p.commonName||p.species||'').toLowerCase().trim();
+    if(s&&spc.indexOf(s)<0)spc.push(s);
+  });
+  var al=[];
+  db.plants.forEach(function(p){if(al.indexOf(p.lineaId)<0)al.push(p.lineaId);});
+  document.getElementById('hp').textContent=db.plants.length;
+  document.getElementById('hs').textContent=spc.length;
+  document.getElementById('hl').textContent=al.length;
   renderBloques(db);
-  var b = document.getElementById('hbanner');
-  b.innerHTML = pend.length ? '<div class="al ala" style="margin-bottom:14px">'+pend.length+' pendiente(s). <span style="text-decoration:underline;cursor:pointer" onclick="syncAll()">Sincronizar</span></div>' : '';
+  var b=document.getElementById('hbanner');
+  b.innerHTML=pend.length?'<div class="al ala" style="margin-bottom:14px">'+pend.length+' pending sync. <span style="text-decoration:underline;cursor:pointer" onclick="syncAll()">Sync now</span></div>':'';
 }
 
-function renderBloques(db) {
-  var list = document.getElementById('blist');
-  var html = '';
-  db.bloques.forEach(function(b) {
-    var lineas = db.lineas.filter(function(l){return l.bloqueId===b.id;});
-    var plants = db.plants.filter(function(p){return lineas.some(function(l){return l.id===p.lineaId;});});
-    var hd = plants.length > 0;
-    var spc = [];
-    plants.forEach(function(p){if(p.species&&spc.indexOf(p.species)<0)spc.push(p.species);});
-    html += '<div class="bc'+(hd?' hd':'')+'" data-bid="'+b.id+'" onclick="showBloque(this.dataset.bid)">';
-    html += '<div><div class="blab">Bloque '+b.label+'</div>';
-    html += '<div class="binf">'+lineas.length+' lineas - '+plants.length+' plantas - '+spc.length+' especies</div></div>';
-    html += '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">';
-    html += '<span class="bbdg">'+(hd?'Con datos':'Vacio')+'</span>';
-    html += '<span style="color:var(--t3);font-size:18px">&rsaquo;</span></div></div>';
+function renderBloques(db){
+  var list=document.getElementById('blist'); var html='';
+  db.bloques.forEach(function(b){
+    var lineas=db.lineas.filter(function(l){return l.bloqueId===b.id;});
+    var plants=db.plants.filter(function(p){return lineas.some(function(l){return l.id===p.lineaId;});});
+    var hd=plants.length>0;
+    var spc=[];plants.forEach(function(p){var n=p.commonName||p.species||'';if(n&&spc.indexOf(n)<0)spc.push(n);});
+    html+='<div class="bc'+(hd?' hd':'')+'" data-bid="'+b.id+'" onclick="showBloque(this.dataset.bid)">';
+    html+='<div><div class="blab">Block '+b.label+'</div>';
+    html+='<div class="binf">'+lineas.length+' lines - '+plants.length+' plants - '+spc.length+' species</div></div>';
+    html+='<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">';
+    html+='<span class="bbdg">'+(hd?'Has data':'Empty')+'</span>';
+    html+='<span style="color:var(--t3);font-size:18px">&rsaquo;</span></div></div>';
   });
-  list.innerHTML = html;
+  list.innerHTML=html;
 }
 
-function showBloque(bid) {
-  var db = gm();
-  var b = db.bloques.find(function(x){return x.id===bid;});
-  if(!b) return;
-  abid = bid;
-  var lineas = db.lineas.filter(function(l){return l.bloqueId===bid;});
-  var plants = db.plants.filter(function(p){return lineas.some(function(l){return l.id===p.lineaId;});});
-  document.getElementById('bdn').textContent = 'Bloque '+b.label;
-  document.getElementById('bdm').textContent = lineas.length+' lineas - '+plants.length+' plantas';
-  var html = '';
-  lineas.forEach(function(l) {
-    var cnt = db.plants.filter(function(p){return p.lineaId===l.id;}).length;
-    html += '<div class="lt'+(cnt?' hd':'')+'" data-lid="'+l.id+'" onclick="showLinea(this.dataset.lid)">';
-    html += '<div class="ln">'+l.num+'</div><div class="lc">'+cnt+' pl.</div></div>';
+function showBloque(bid){
+  var db=gm();
+  var b=db.bloques.find(function(x){return x.id===bid;}); if(!b)return;
+  abid=bid;
+  var lineas=db.lineas.filter(function(l){return l.bloqueId===bid;});
+  var plants=db.plants.filter(function(p){return lineas.some(function(l){return l.id===p.lineaId;});});
+  document.getElementById('bdn').textContent='Block '+b.label;
+  document.getElementById('bdm').textContent=lineas.length+' lines - '+plants.length+' plants';
+  var html='';
+  lineas.forEach(function(l){
+    var cnt=db.plants.filter(function(p){return p.lineaId===l.id;}).length;
+    html+='<div class="lt'+(cnt?' hd':'')+'" data-lid="'+l.id+'" onclick="showLinea(this.dataset.lid)">';
+    html+='<div class="ln">'+l.num+'</div><div class="lc">'+cnt+' pl.</div></div>';
   });
-  document.getElementById('lgrid').innerHTML = html;
+  document.getElementById('lgrid').innerHTML=html;
   nav('bloque');
-  document.getElementById('tsub').textContent = 'Bloque '+b.label;
+  document.getElementById('tsub').textContent='Block '+b.label;
 }
 
-function showLinea(lid) {
-  var db = gm();
-  var l = db.lineas.find(function(x){return x.id===lid;});
-  if(!l) return;
-  alid = lid; abid = l.bloqueId;
-  var b = db.bloques.find(function(x){return x.id===l.bloqueId;});
-  var plants = db.plants.filter(function(p){return p.lineaId===lid;});
-  document.getElementById('ldn').textContent = l.name;
-  document.getElementById('ldm').textContent = plants.length+' planta'+(plants.length!==1?'s':'')+' registradas';
-  document.getElementById('lbklbl').textContent = b ? 'Bloque '+b.label : 'Bloque';
-  document.getElementById('lbk').onclick = function(){showBloque(l.bloqueId);};
-  var spc = [];
-  plants.forEach(function(p){if(p.species&&spc.indexOf(p.species)<0)spc.push(p.species);});
-  document.getElementById('lch').innerHTML = spc.length ? spc.map(function(s){return '<div class="chip">'+s+'</div>';}).join('') : '<span style="font-size:12px;color:var(--t3)">Sin registros</span>';
-  document.getElementById('lpl').innerHTML = plants.length ? plants.map(function(p){return plantCard(p,db);}).join('') : '<div class="es"><div class="ei">&#127807;</div><p>Linea vacia</p></div>';
+function showLinea(lid){
+  var db=gm();
+  var l=db.lineas.find(function(x){return x.id===lid;}); if(!l)return;
+  alid=lid; abid=l.bloqueId;
+  var b=db.bloques.find(function(x){return x.id===l.bloqueId;});
+  var plants=db.plants.filter(function(p){return p.lineaId===lid;});
+  document.getElementById('ldn').textContent=l.name;
+  document.getElementById('ldm').textContent=plants.length+' plant'+(plants.length!==1?'s':'')+' registered';
+  document.getElementById('lbklbl').textContent=b?'Block '+b.label:'Block';
+  document.getElementById('lbk').onclick=function(){showBloque(l.bloqueId);};
+  var spc=[];
+  plants.forEach(function(p){var n=p.commonName||p.species||'';if(n&&spc.indexOf(n)<0)spc.push(n);});
+  document.getElementById('lch').innerHTML=spc.length?spc.map(function(s){return '<div class="chip">'+s+'</div>';}).join(''):'<span style="font-size:12px;color:var(--t3)">No records yet</span>';
+  document.getElementById('lpl').innerHTML=plants.length?plants.map(function(p){return plantCard(p,db);}).join(''):'<div class="es"><div class="ei">&#127807;</div><p>Empty line</p></div>';
   nav('linea');
-  document.getElementById('tsub').textContent = l.name;
+  document.getElementById('tsub').textContent=l.name;
 }
 
-function addLinea() {
-  var db = gm();
-  var bl = db.lineas.filter(function(l){return l.bloqueId===abid;});
-  var n = bl.length + 1;
-  var b = db.bloques.find(function(x){return x.id===abid;});
-  udb.lineas.push({id:'l'+Date.now(), bloqueId:abid, num:n, name:(b?'Bloque '+b.label:'Bloque')+' Linea '+n});
+function addLinea(){
+  var db=gm();
+  var bl=db.lineas.filter(function(l){return l.bloqueId===abid;});
+  var n=bl.length+1;
+  var b=db.bloques.find(function(x){return x.id===abid;});
+  udb.lineas.push({id:'l'+Date.now(),bloqueId:abid,num:n,name:(b?'Block '+b.label:'Block')+' Line '+n});
   su(); showBloque(abid);
 }
 
-function plantCard(p, db) {
-  if(!db) db = gm();
-  var l = db.lineas.find(function(x){return x.id===p.lineaId;});
-  var b = l ? db.bloques.find(function(x){return x.id===l.bloqueId;}) : null;
-  var qc = p.quality==='Premium'?'bg':p.quality==='Standard'?'bb':'bgr';
-  var ip = pend.indexOf(p.id) >= 0;
-  var loc = b&&l ? 'Bloque '+b.label+' L'+l.num : (l?l.name:'');
-  var h = '<div class="card">';
-  h += '<div class="cth">'+(p.photoData?'<img src="'+p.photoData+'" alt="">':'&#127795;')+'</div>';
-  h += '<div class="cbd"><div class="ct">'+(p.species||'?');
-  if(p.quality) h += ' <span class="bdg '+qc+'">'+p.quality+'</span>';
-  if(ip) h += ' <span class="bdg ba">pend</span>';
-  h += '</div><div class="cm">';
-  if(loc) h += '<span>'+loc+(p.position?' pos'+p.position:'')+'</span>';
-  if(p.height) h += '<span>'+p.height+'</span>';
-  if(p.qty>1) h += '<span>x'+p.qty+'</span>';
-  if(p.price) h += '<span class="pt2">$'+parseFloat(p.price).toFixed(2)+'</span>';
-  else h += '<span style="color:var(--t3);font-style:italic">sin precio</span>';
-  h += '</div><div class="ca"><button class="btn btng btns" data-pid="'+p.id+'" onclick="openEdit(this.dataset.pid)">Editar</button></div></div></div>';
+function plantCard(p,db){
+  if(!db)db=gm();
+  var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+  var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+  var qc=p.quality==='Premium'?'bg':p.quality==='Standard'?'bb':'bgr';
+  var ip=pend.indexOf(p.id)>=0;
+  var loc=b&&l?'Block '+b.label+' L'+l.num:(l?l.name:'');
+  var displayName=p.commonName||p.species||'Unknown';
+  var h='<div class="card">';
+  h+='<div class="cth">'+(p.photoData?'<img src="'+p.photoData+'" alt="">':'&#127795;')+'</div>';
+  h+='<div class="cbd"><div class="ct">'+displayName;
+  if(p.quality)h+=' <span class="bdg '+qc+'">'+p.quality+'</span>';
+  if(ip)h+=' <span class="bdg ba">pending</span>';
+  h+='</div>';
+  if(p.species&&p.commonName)h+='<div style="font-size:11px;color:var(--t3);font-style:italic;margin-top:2px">'+p.species+'</div>';
+  h+='<div class="cm">';
+  if(loc)h+='<span>&#128205;'+loc+(p.position?' pos'+p.position:'')+'</span>';
+  if(p.height)h+='<span>&#128207;'+p.height+'</span>';
+  if(p.caliper)h+='<span>Cal: '+p.caliper+'</span>';
+  if(p.qty>1)h+='<span>x'+p.qty+'</span>';
+  if(p.price)h+='<span style="color:var(--g);font-weight:600">$'+parseFloat(p.price).toFixed(2)+'</span>';
+  else h+='<span style="color:var(--t3);font-style:italic">no price</span>';
+  if(p.purchasePrice)h+='<span style="color:var(--a)">Cost:$'+parseFloat(p.purchasePrice).toFixed(2)+'</span>';
+  h+='</div>';
+  h+='<div class="ca"><button class="btn btng btns" data-pid="'+p.id+'" onclick="openEdit(this.dataset.pid)">&#9998; Edit</button></div>';
+  h+='</div></div>';
   return h;
 }
 
-function doSearch() {
-  var q = document.getElementById('si').value.toLowerCase().trim();
-  var db = gm();
-  var res = q ? db.plants.filter(function(p) {
-    var l = db.lineas.find(function(x){return x.id===p.lineaId;});
-    var b = l ? db.bloques.find(function(x){return x.id===l.bloqueId;}) : null;
-    return (p.species||'').toLowerCase().indexOf(q)>=0 || (l?l.name.toLowerCase().indexOf(q)>=0:false) || (b?('bloque '+b.label).indexOf(q)>=0:false);
-  }) : db.plants.slice().reverse().slice(0,20);
-  var c = document.getElementById('sr');
-  c.innerHTML = res.length ? res.map(function(p){return plantCard(p,db);}).join('') : '<div class="es"><div class="ei">&#128269;</div><p>Sin resultados</p></div>';
+function doSearch(){
+  var q=document.getElementById('si').value.toLowerCase().trim();
+  var bf=document.getElementById('sf-block').value;
+  var qf=document.getElementById('sf-quality').value;
+  var db=gm();
+  var res=db.plants.filter(function(p){
+    var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+    var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+    if(bf&&b&&b.id!==bf)return false;
+    if(qf&&p.quality!==qf)return false;
+    if(!q)return true;
+    return (p.commonName||'').toLowerCase().indexOf(q)>=0||
+           (p.species||'').toLowerCase().indexOf(q)>=0||
+           (p.caliper||'').toLowerCase().indexOf(q)>=0||
+           (p.height||'').toLowerCase().indexOf(q)>=0||
+           (l?l.name.toLowerCase().indexOf(q)>=0:false)||
+           (b?('block '+b.label).indexOf(q)>=0:false)||
+           (p.notes||'').toLowerCase().indexOf(q)>=0;
+  });
+  document.getElementById('search-count').textContent=res.length+' result'+(res.length!==1?'s':'');
+  var c=document.getElementById('sr');
+  c.innerHTML=res.length?res.map(function(p){return plantCard(p,db);}).join(''):'<div class="es"><div class="ei">&#128269;</div><p>No results found</p></div>';
 }
 
-function quickAdd() { nav('add'); }
+function quickAdd(){nav('add');}
 
-function updLS() {
-  var db = gm();
-  var bid = document.getElementById('fb').value;
-  var ls = db.lineas.filter(function(l){return l.bloqueId===bid;});
-  var s = document.getElementById('fl');
-  s.innerHTML = ls.map(function(l){return '<option value="'+l.id+'">Linea '+l.num+'</option>';}).join('');
-  if(alid) { var f = ls.find(function(l){return l.id===alid;}); if(f) s.value = alid; }
+function updLS(){
+  var db=gm(); var bid=document.getElementById('fb').value;
+  var ls=db.lineas.filter(function(l){return l.bloqueId===bid;});
+  var s=document.getElementById('fl');
+  s.innerHTML=ls.map(function(l){return '<option value="'+l.id+'">Line '+l.num+'</option>';}).join('');
+  if(alid){var f=ls.find(function(l){return l.id===alid;});if(f)s.value=alid;}
 }
 
-function updLSE() {
-  var db = gm();
-  var bid = document.getElementById('eb').value;
-  var ls = db.lineas.filter(function(l){return l.bloqueId===bid;});
-  document.getElementById('el2').innerHTML = ls.map(function(l){return '<option value="'+l.id+'">Linea '+l.num+'</option>';}).join('');
+function updLSE(){
+  var db=gm(); var bid=document.getElementById('eb').value;
+  var ls=db.lineas.filter(function(l){return l.bloqueId===bid;});
+  document.getElementById('el2').innerHTML=ls.map(function(l){return '<option value="'+l.id+'">Line '+l.num+'</option>';}).join('');
 }
 
-function initForm() {
-  cq = ''; cphotos = [];
-  document.getElementById('fph').innerHTML = '';
+function initForm(){
+  cq=''; cphotos=[];
+  document.getElementById('fph').innerHTML='';
   document.querySelectorAll('#s-add .qo').forEach(function(q){q.classList.remove('on');});
-  ['fpos','fsp','fsc','fh','fsp2','fno'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
-  document.getElementById('fq').value = 1;
-  document.getElementById('fpr').value = '';
-  document.getElementById('forr').value = '';
-  var db = gm();
-  var bs = document.getElementById('fb');
-  bs.innerHTML = db.bloques.map(function(b){return '<option value="'+b.id+'">Bloque '+b.label+'</option>';}).join('');
-  if(abid) bs.value = abid;
+  ['fpos','fcn','fsp','fh','fcal','fsp2','fno'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+  document.getElementById('fq').value=1;
+  document.getElementById('fpr').value='';
+  document.getElementById('fppr').value='';
+  document.getElementById('forr').value='';
+  var db=gm();
+  var bs=document.getElementById('fb');
+  bs.innerHTML=db.bloques.map(function(b){return '<option value="'+b.id+'">Block '+b.label+'</option>';}).join('');
+  if(abid)bs.value=abid;
   updLS();
-  var spc = [];
-  db.plants.forEach(function(p){if(p.species&&spc.indexOf(p.species)<0)spc.push(p.species);});
-  document.getElementById('sdl').innerHTML = spc.map(function(s){return '<option value="'+s+'">';}).join('');
+  var cn=[]; var sp=[];
+  db.plants.forEach(function(p){
+    if(p.commonName&&cn.indexOf(p.commonName)<0)cn.push(p.commonName);
+    if(p.species&&sp.indexOf(p.species)<0)sp.push(p.species);
+  });
+  document.getElementById('sdl-cn').innerHTML=cn.map(function(s){return '<option value="'+s+'">';}).join('');
+  document.getElementById('sdl-sp').innerHTML=sp.map(function(s){return '<option value="'+s+'">';}).join('');
 }
 
-function selQ(v) {
+function selQ(v){
   document.querySelectorAll('#s-add .qo').forEach(function(q){q.classList.remove('on');});
-  var m = {Premium:'qa-p',Standard:'qa-s',Segunda:'qa-2'};
-  var el = document.getElementById(m[v]); if(el) el.classList.add('on');
-  cq = v;
+  var m={Premium:'qa-p',Standard:'qa-s',Segunda:'qa-2'};
+  var el=document.getElementById(m[v]); if(el)el.classList.add('on'); cq=v;
 }
-function selQE(v) {
+function selQE(v){
   document.querySelectorAll('#em .qo').forEach(function(q){q.classList.remove('on');});
-  var m = {Premium:'qe-p',Standard:'qe-s',Segunda:'qe-2'};
-  var el = document.getElementById(m[v]); if(el) el.classList.add('on');
-  cqe = v;
+  var m={Premium:'qe-p',Standard:'qe-s',Segunda:'qe-2'};
+  var el=document.getElementById(m[v]); if(el)el.classList.add('on'); cqe=v;
 }
 
-function addPhotos(e) {
-  Array.prototype.forEach.call(e.target.files, function(file) {
-    var canvas = document.createElement('canvas');
-    var img = new Image();
-    var reader = new FileReader();
-    reader.onload = function(ev) {
-      img.onload = function() {
-        var MAX = 900; var w = img.width; var h = img.height;
+function addPhotos(e){
+  Array.prototype.forEach.call(e.target.files,function(file){
+    var canvas=document.createElement('canvas'); var img=new Image(); var reader=new FileReader();
+    reader.onload=function(ev){
+      img.onload=function(){
+        var MAX=900; var w=img.width; var h=img.height;
         if(w>MAX){h=h*(MAX/w);w=MAX;}
         canvas.width=w; canvas.height=h;
         canvas.getContext('2d').drawImage(img,0,0,w,h);
-        var data = canvas.toDataURL('image/jpeg',.7);
+        var data=canvas.toDataURL('image/jpeg',.7);
         cphotos.push(data);
-        var t = document.createElement('img'); t.src=data; t.className='pt';
+        var t=document.createElement('img'); t.src=data; t.className='ptimg';
         document.getElementById('fph').appendChild(t);
       };
-      img.src = ev.target.result;
+      img.src=ev.target.result;
     };
     reader.readAsDataURL(file);
   });
 }
 
-function savePlant() {
-  var sp = document.getElementById('fsp').value.trim();
-  var lid = document.getElementById('fl').value;
-  if(!sp) { alert('Ingresa la especie.'); return; }
-  if(!lid) { alert('Selecciona la linea.'); return; }
-  var p = {
-    id: 'p'+Date.now(), lineaId: lid,
-    position: document.getElementById('fpos').value.trim(),
-    species: sp,
-    sciName: document.getElementById('fsc').value.trim(),
-    height: document.getElementById('fh').value.trim(),
-    spread: document.getElementById('fsp2').value.trim(),
-    qty: parseInt(document.getElementById('fq').value)||1,
-    quality: cq,
-    price: document.getElementById('fpr').value,
-    origin: document.getElementById('forr').value,
-    notes: document.getElementById('fno').value.trim(),
-    photoData: cphotos[0]||null,
-    ts: new Date().toISOString()
+function savePlant(){
+  var cn=document.getElementById('fcn').value.trim();
+  var sp=document.getElementById('fsp').value.trim();
+  var lid=document.getElementById('fl').value;
+  if(!cn&&!sp){alert('Enter at least Common Name or Species.');return;}
+  if(!lid){alert('Select a line.');return;}
+  var p={
+    id:'p'+Date.now(), lineaId:lid,
+    position:document.getElementById('fpos').value.trim(),
+    commonName:cn, species:sp,
+    sciName:sp,
+    height:document.getElementById('fh').value.trim(),
+    caliper:document.getElementById('fcal').value.trim(),
+    spread:document.getElementById('fsp2').value.trim(),
+    qty:parseInt(document.getElementById('fq').value)||1,
+    quality:cq,
+    price:document.getElementById('fpr').value,
+    purchasePrice:document.getElementById('fppr').value,
+    origin:document.getElementById('forr').value,
+    notes:document.getElementById('fno').value.trim(),
+    photoData:cphotos[0]||null,
+    ts:new Date().toISOString()
   };
   udb.plants.push(p); su();
   pend.push(p.id); sp();
   syncP([p]);
-  alid = null; nav('home');
+  alid=null; nav('home');
 }
 
-function getLN(lid) {
-  var db = gm();
-  var l = db.lineas.find(function(x){return x.id===lid;});
-  if(!l) return '';
-  var b = db.bloques.find(function(x){return x.id===l.bloqueId;});
-  return b ? 'Bloque '+b.label+' Linea '+l.num : l.name;
+function getLN(lid){
+  var db=gm(); var l=db.lineas.find(function(x){return x.id===lid;});
+  if(!l)return''; var b=db.bloques.find(function(x){return x.id===l.bloqueId;});
+  return b?'Block '+b.label+' Line '+l.num:l.name;
 }
 
-function bp(p) {
-  return {id:p.id, ts:p.ts, ubicacion:getLN(p.lineaId), position:p.position||'', species:p.species||'', sciName:p.sciName||'', height:p.height||'', spread:p.spread||'', qty:p.qty||1, quality:p.quality||'', price:p.price||'', origin:p.origin||'', notes:p.notes||''};
+function bp(p){
+  return{id:p.id,ts:p.ts,ubicacion:getLN(p.lineaId),position:p.position||'',
+    commonName:p.commonName||'',species:p.species||p.sciName||'',
+    height:p.height||'',caliper:p.caliper||'',spread:p.spread||'',
+    qty:p.qty||1,quality:p.quality||'',price:p.price||'',
+    purchasePrice:p.purchasePrice||'',origin:p.origin||'',notes:p.notes||''};
 }
 
-function setSd(s) { document.getElementById('sd').className = 'sd '+s; }
+function setSd(s){document.getElementById('sd').className='sd '+s;}
 
-function syncP(plants) {
+function syncP(plants){
   setSd('pend');
-  var payload = JSON.stringify(plants.length===1 ? bp(plants[0]) : plants.map(bp));
-  var form = document.createElement('form');
+  var payload=JSON.stringify(plants.length===1?bp(plants[0]):plants.map(bp));
+  var form=document.createElement('form');
   form.method='POST'; form.action=SU; form.target='sf'; form.style.display='none';
-  var inp = document.createElement('input'); inp.name='payload'; inp.value=payload;
+  var inp=document.createElement('input'); inp.name='payload'; inp.value=payload;
   form.appendChild(inp); document.body.appendChild(form);
-  var frame = document.getElementById('sf');
-  if(!frame) { frame=document.createElement('iframe'); frame.id='sf'; frame.name='sf'; frame.style.display='none'; document.body.appendChild(frame); }
-  frame.onload = function() {
+  var frame=document.getElementById('sf');
+  if(!frame){frame=document.createElement('iframe');frame.id='sf';frame.name='sf';frame.style.display='none';document.body.appendChild(frame);}
+  frame.onload=function(){
     plants.forEach(function(p){var i=pend.indexOf(p.id);if(i>=0)pend.splice(i,1);});
     sp(); setSd(pend.length?'pend':'ok'); render();
-    if(document.body.contains(form)) document.body.removeChild(form);
+    if(document.body.contains(form))document.body.removeChild(form);
   };
   form.submit();
-  setTimeout(function(){if(document.body.contains(form))document.body.removeChild(form);}, 5000);
+  setTimeout(function(){if(document.body.contains(form))document.body.removeChild(form);},5000);
 }
 
-function syncAll() {
-  var ts = udb.plants.filter(function(p){return pend.indexOf(p.id)>=0;});
-  if(!ts.length) { alert('Todo sincronizado'); return; }
+function syncAll(){
+  var ts=udb.plants.filter(function(p){return pend.indexOf(p.id)>=0;});
+  if(!ts.length){alert('All synced!');return;}
   syncP(ts);
-  setTimeout(function(){alert(ts.length+' registros enviados a Google Sheets');}, 2000);
+  setTimeout(function(){alert(ts.length+' records sent to Google Sheets.');},2000);
 }
 
-function renderExp() {
-  var db = gm();
-  document.getElementById('ep').textContent = db.plants.length;
-  var spc = [];
-  db.plants.forEach(function(p){var s=(p.species||'').toLowerCase().trim();if(s&&spc.indexOf(s)<0)spc.push(s);});
-  document.getElementById('es2').textContent = spc.length;
-  var al = [];
+function renderExp(){
+  var db=gm();
+  document.getElementById('ep').textContent=db.plants.length;
+  var spc=[];
+  db.plants.forEach(function(p){var s=(p.commonName||p.species||'').toLowerCase().trim();if(s&&spc.indexOf(s)<0)spc.push(s);});
+  document.getElementById('es2').textContent=spc.length;
+  var al=[];
   db.plants.forEach(function(p){if(al.indexOf(p.lineaId)<0)al.push(p.lineaId);});
-  document.getElementById('el').textContent = al.length;
-  document.getElementById('exbanner').innerHTML = pend.length ? '<div class="al ala" style="margin-bottom:14px">'+pend.length+' pendiente(s)</div>' : '<div class="al alg" style="margin-bottom:14px">Todo sincronizado</div>';
-  var by = {};
+  document.getElementById('el').textContent=al.length;
+  document.getElementById('exbanner').innerHTML=pend.length?'<div class="al ala" style="margin-bottom:14px">'+pend.length+' pending sync</div>':'<div class="al alg" style="margin-bottom:14px">&#10003; All synced with Google Sheets</div>';
+  var by={};
   db.plants.forEach(function(p){
-    var k = p.species||'Sin nombre';
-    if(!by[k]) by[k]={t:0,ls:[],ps:[]};
-    by[k].t += parseInt(p.qty)||1;
-    if(by[k].ls.indexOf(p.lineaId)<0) by[k].ls.push(p.lineaId);
-    if(p.price) by[k].ps.push(parseFloat(p.price));
+    var k=p.commonName||p.species||'Unknown';
+    if(!by[k])by[k]={t:0,ls:[],ps:[],cs:[]};
+    by[k].t+=parseInt(p.qty)||1;
+    if(by[k].ls.indexOf(p.lineaId)<0)by[k].ls.push(p.lineaId);
+    if(p.price)by[k].ps.push(parseFloat(p.price));
+    if(p.caliper&&by[k].cs.indexOf(p.caliper)<0)by[k].cs.push(p.caliper);
   });
-  var html = '';
+  var html='';
   Object.keys(by).sort(function(a,b){return by[b].t-by[a].t;}).forEach(function(name){
-    var d = by[name];
-    var ln = d.ls.map(function(lid){return getLN(lid);}).join(', ');
-    var avg = d.ps.length ? '$'+(d.ps.reduce(function(a,b){return a+b;},0)/d.ps.length).toFixed(2) : 'sin precio';
-    html += '<div class="ec"><div style="font-size:14px;font-weight:600;margin-bottom:4px">'+name+'</div><div style="font-size:12px;color:var(--t3)">Cant: '+d.t+' - '+ln+' - Precio: '+avg+'</div></div>';
+    var d=by[name];
+    var ln=d.ls.map(function(lid){return getLN(lid);}).join(', ');
+    var avg=d.ps.length?'$'+(d.ps.reduce(function(a,b){return a+b;},0)/d.ps.length).toFixed(2):'no price';
+    var cal=d.cs.length?d.cs.join(', '):'';
+    html+='<div class="ec"><div style="font-size:14px;font-weight:600;margin-bottom:4px">'+name+'</div>';
+    html+='<div style="font-size:12px;color:var(--t3)">Qty: <b>'+d.t+'</b> &middot; '+ln+' &middot; Price: <b>'+avg+'</b>'+(cal?' &middot; Cal: '+cal:'')+'</div></div>';
   });
-  document.getElementById('exsum').innerHTML = html || '<div style="font-size:13px;color:var(--t3)">Sin datos.</div>';
+  document.getElementById('exsum').innerHTML=html||'<div style="font-size:13px;color:var(--t3)">No data.</div>';
 }
 
-function exportCSV() {
-  var db = gm();
-  if(!db.plants.length) { alert('Sin registros.'); return; }
-  var H = ['ID','Bloque','Linea','Posicion','Especie','Nombre_Cientifico','Altura','Spread','Cantidad','Calidad','Precio','Origen','Notas','Fecha'];
-  var rows = db.plants.map(function(p) {
-    var l = db.lineas.find(function(x){return x.id===p.lineaId;});
-    var b = l ? db.bloques.find(function(x){return x.id===l.bloqueId;}) : null;
-    return [p.id,b?'Bloque '+b.label:'',l?'Linea '+l.num:'',p.position,p.species,p.sciName,p.height,p.spread,p.qty,p.quality,p.price,p.origin,p.notes,p.ts]
-      .map(function(v){return '"'+String(v||'').replace(/"/g,'""')+'"';}).join(',');
+function exportCSV(){
+  var db=gm(); if(!db.plants.length){alert('No records.');return;}
+  var H=['ID','Block','Line','Position','Common Name','Species','Height','Caliper','Spread','Quantity','Quality','Sale Price','Purchase Price','Origin','Notes','Date'];
+  var rows=db.plants.map(function(p){
+    var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+    var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+    return[p.id,b?'Block '+b.label:'',l?'Line '+l.num:'',p.position,p.commonName||p.species,p.species,p.height,p.caliper||'',p.spread,p.qty,p.quality,p.price,p.purchasePrice||'',p.origin,p.notes,p.ts]
+      .map(function(v){return'"'+String(v||'').replace(/"/g,'""')+'"';}).join(',');
   });
-  var blob = new Blob(['\uFEFF'+[H.join(',')].concat(rows).join('\n')],{type:'text/csv;charset=utf-8'});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a'); a.href=url; a.download='linus-biome-'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
-  setTimeout(function(){URL.revokeObjectURL(url);}, 2000);
+  var blob=new Blob(['\uFEFF'+[H.join(',')].concat(rows).join('\n')],{type:'text/csv;charset=utf-8'});
+  var url=URL.createObjectURL(blob); var a=document.createElement('a');
+  a.href=url; a.download='linus-biome-'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
+  setTimeout(function(){URL.revokeObjectURL(url);},2000);
 }
 
-function openEdit(pid) {
-  var db = gm();
-  var p = db.plants.find(function(x){return x.id===pid;});
-  if(!p) return;
-  cqe = p.quality||'';
-  document.getElementById('eid').value = pid;
-  var bs = document.getElementById('eb');
-  bs.innerHTML = db.bloques.map(function(b){return '<option value="'+b.id+'">Bloque '+b.label+'</option>';}).join('');
-  var l = db.lineas.find(function(x){return x.id===p.lineaId;});
-  if(l) { bs.value=l.bloqueId; updLSE(); document.getElementById('el2').value=p.lineaId; }
-  document.getElementById('epos').value = p.position||'';
-  document.getElementById('esp').value = p.species||'';
-  document.getElementById('esc').value = p.sciName||'';
-  document.getElementById('eh').value = p.height||'';
-  document.getElementById('esp2').value = p.spread||'';
-  document.getElementById('eq').value = p.qty||1;
-  document.getElementById('epr').value = p.price||'';
-  document.getElementById('eor').value = p.origin||'';
-  document.getElementById('en').value = p.notes||'';
+function printLine(){
+  var db=gm();
+  var plants=db.plants.filter(function(p){return p.lineaId===alid;});
+  var l=db.lineas.find(function(x){return x.id===alid;});
+  printReport(plants, db, l?l.name:'Line Report');
+}
+
+function printSearch(){
+  var db=gm();
+  var q=document.getElementById('si').value.toLowerCase().trim();
+  var bf=document.getElementById('sf-block').value;
+  var qf=document.getElementById('sf-quality').value;
+  var res=db.plants.filter(function(p){
+    var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+    var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+    if(bf&&b&&b.id!==bf)return false;
+    if(qf&&p.quality!==qf)return false;
+    if(!q)return true;
+    return (p.commonName||'').toLowerCase().indexOf(q)>=0||(p.species||'').toLowerCase().indexOf(q)>=0||(p.caliper||'').toLowerCase().indexOf(q)>=0||(p.height||'').toLowerCase().indexOf(q)>=0;
+  });
+  printReport(res, db, 'Search Results');
+}
+
+function printExport(){
+  var db=gm();
+  printReport(db.plants, db, 'Linus-Biome Full Inventory');
+}
+
+function printReport(plants, db, title){
+  var w=window.open('','_blank');
+  var rows=plants.map(function(p){
+    var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+    var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+    var loc=b&&l?'Block '+b.label+' L'+l.num:'';
+    return '<tr><td>'+(p.commonName||p.species||'?')+'</td><td>'+(p.species||'')+'</td><td>'+loc+'</td><td>'+(p.height||'')+'</td><td>'+(p.caliper||'')+'</td><td>'+(p.qty||1)+'</td><td>'+(p.quality||'')+'</td><td>'+(p.price?'$'+parseFloat(p.price).toFixed(2):'')+'</td><td>'+(p.notes||'')+'</td></tr>';
+  }).join('');
+  w.document.write('<html><head><title>'+title+'</title><style>body{font-family:Arial,sans-serif;font-size:12px;padding:20px}h2{color:#1D9E75;margin-bottom:5px}p{color:#666;margin-bottom:15px}table{width:100%;border-collapse:collapse}th{background:#1D9E75;color:#fff;padding:8px;text-align:left;font-size:11px}td{padding:6px 8px;border-bottom:1px solid #eee;font-size:11px}tr:nth-child(even){background:#f9f9f9}@media print{body{padding:10px}}</style></head><body>');
+  w.document.write('<h2>Linus-Biome - '+title+'</h2><p>Generated: '+new Date().toLocaleDateString()+' | Total: '+plants.length+' plants</p>');
+  w.document.write('<table><tr><th>Common Name</th><th>Species</th><th>Location</th><th>Height</th><th>Caliper</th><th>Qty</th><th>Quality</th><th>Price</th><th>Notes</th></tr>'+rows+'</table>');
+  w.document.write('</body></html>');
+  w.document.close();
+  w.print();
+}
+
+function openEdit(pid){
+  var db=gm(); var p=db.plants.find(function(x){return x.id===pid;}); if(!p)return;
+  cqe=p.quality||'';
+  document.getElementById('eid').value=pid;
+  var bs=document.getElementById('eb');
+  bs.innerHTML=db.bloques.map(function(b){return '<option value="'+b.id+'">Block '+b.label+'</option>';}).join('');
+  var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+  if(l){bs.value=l.bloqueId;updLSE();document.getElementById('el2').value=p.lineaId;}
+  document.getElementById('epos').value=p.position||'';
+  document.getElementById('ecn').value=p.commonName||p.species||'';
+  document.getElementById('esp').value=p.species||p.sciName||'';
+  document.getElementById('eh').value=p.height||'';
+  document.getElementById('ecal').value=p.caliper||'';
+  document.getElementById('esp2').value=p.spread||'';
+  document.getElementById('eq').value=p.qty||1;
+  document.getElementById('epr').value=p.price||'';
+  document.getElementById('eppr').value=p.purchasePrice||'';
+  document.getElementById('eor').value=p.origin||'';
+  document.getElementById('en').value=p.notes||'';
   document.querySelectorAll('#em .qo').forEach(function(q){q.classList.remove('on');});
-  var m = {Premium:'qe-p',Standard:'qe-s',Segunda:'qe-2'};
-  if(p.quality&&m[p.quality]) { var el=document.getElementById(m[p.quality]); if(el) el.classList.add('on'); }
-  var spc = [];
-  db.plants.forEach(function(x){if(x.species&&spc.indexOf(x.species)<0)spc.push(x.species);});
-  document.getElementById('sdl2').innerHTML = spc.map(function(s){return '<option value="'+s+'">';}).join('');
+  var m={Premium:'qe-p',Standard:'qe-s',Segunda:'qe-2'};
+  if(p.quality&&m[p.quality]){var el=document.getElementById(m[p.quality]);if(el)el.classList.add('on');}
+  var cn=[];db.plants.forEach(function(x){if(x.commonName&&cn.indexOf(x.commonName)<0)cn.push(x.commonName);});
+  document.getElementById('sdl-cn2').innerHTML=cn.map(function(s){return '<option value="'+s+'">';}).join('');
   document.getElementById('em').classList.remove('h');
 }
 
-function closeM() { document.getElementById('em').classList.add('h'); }
+function closeM(){document.getElementById('em').classList.add('h');}
 
-function saveEdit() {
-  var pid = document.getElementById('eid').value;
-  var upd = {
-    lineaId: document.getElementById('el2').value,
-    position: document.getElementById('epos').value.trim(),
-    species: document.getElementById('esp').value.trim(),
-    sciName: document.getElementById('esc').value.trim(),
-    height: document.getElementById('eh').value.trim(),
-    spread: document.getElementById('esp2').value.trim(),
-    qty: parseInt(document.getElementById('eq').value)||1,
-    quality: cqe,
-    price: document.getElementById('epr').value,
-    origin: document.getElementById('eor').value,
-    notes: document.getElementById('en').value.trim(),
-    updatedAt: new Date().toISOString()
+function saveEdit(){
+  var pid=document.getElementById('eid').value;
+  var upd={
+    lineaId:document.getElementById('el2').value,
+    position:document.getElementById('epos').value.trim(),
+    commonName:document.getElementById('ecn').value.trim(),
+    species:document.getElementById('esp').value.trim(),
+    sciName:document.getElementById('esp').value.trim(),
+    height:document.getElementById('eh').value.trim(),
+    caliper:document.getElementById('ecal').value.trim(),
+    spread:document.getElementById('esp2').value.trim(),
+    qty:parseInt(document.getElementById('eq').value)||1,
+    quality:cqe,
+    price:document.getElementById('epr').value,
+    purchasePrice:document.getElementById('eppr').value,
+    origin:document.getElementById('eor').value,
+    notes:document.getElementById('en').value.trim(),
+    updatedAt:new Date().toISOString()
   };
-  var i = udb.plants.findIndex(function(p){return p.id===pid;});
-  if(i >= 0) { Object.assign(udb.plants[i], upd); }
-  else {
-    var db = gm();
-    var mp = db.plants.find(function(p){return p.id===pid;});
-    if(mp) udb.plants.push(Object.assign({}, mp, upd));
-  }
+  var i=udb.plants.findIndex(function(p){return p.id===pid;});
+  if(i>=0){Object.assign(udb.plants[i],upd);}
+  else{var db=gm();var mp=db.plants.find(function(p){return p.id===pid;});if(mp)udb.plants.push(Object.assign({},mp,upd));}
   su();
-  if(pend.indexOf(pid)<0) { pend.push(pid); sp(); }
-  var db2 = gm();
-  var pp = db2.plants.find(function(p){return p.id===pid;});
-  if(pp) syncP([pp]);
+  if(pend.indexOf(pid)<0){pend.push(pid);sp();}
+  var db2=gm(); var pp=db2.plants.find(function(p){return p.id===pid;});
+  if(pp)syncP([pp]);
   closeM(); render(); nav('home');
 }
 
-function clearNew() {
-  if(confirm('Borrar solo los registros nuevos? Los datos originales NO se borran.')) {
-    udb = {bloques:[], lineas:[], plants:[]}; pend = [];
+function deleteRecord(){
+  var pid=document.getElementById('eid').value;
+  if(!confirm('Delete this record? This cannot be undone.'))return;
+  if(!udb.deleted)udb.deleted=[];
+  udb.deleted.push(pid);
+  var i=udb.plants.findIndex(function(p){return p.id===pid;});
+  if(i>=0)udb.plants.splice(i,1);
+  su(); closeM(); render(); nav('home');
+}
+
+function clearNew(){
+  if(confirm('Clear only new records added since last update?\n\nOriginal data (Blocks A-D) will NOT be deleted.')){
+    udb={bloques:[],lineas:[],plants:[],deleted:[]}; pend=[];
     localStorage.removeItem(UK); localStorage.removeItem(PK);
-    render(); nav('home');
+    loadData(); nav('home');
   }
 }
 
-document.getElementById('em').addEventListener('click', function(e){if(e.target===this)closeM();});
+document.getElementById('em').addEventListener('click',function(e){if(e.target===this)closeM();});
 loadData();
 </script>
 </body>
