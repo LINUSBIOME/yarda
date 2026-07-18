@@ -279,6 +279,57 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
 </div>
 
 <!-- BOTTOM NAV -->
+
+<!-- SALES SCREEN -->
+<div class="screen sc" id="s-sales">
+  <div class="sg">
+    <div class="sc2"><div class="sn" id="sv-total">0</div><div class="sl">total sales</div></div>
+    <div class="sc2"><div class="sn" id="sv-units">0</div><div class="sl">units sold</div></div>
+    <div class="sc2"><div class="sn" id="sv-revenue">$0</div><div class="sl">revenue</div></div>
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+    <select id="sv-filter-block" onchange="renderSales()" style="flex:1;padding:9px 13px;border:1.5px solid var(--bd);border-radius:var(--rs);font-size:13px;font-family:var(--fn);color:var(--t);background:var(--c);outline:none;-webkit-appearance:none">
+      <option value="">All Blocks</option>
+      <option value="bA">Block A</option>
+      <option value="bB">Block B</option>
+      <option value="bC">Block C</option>
+      <option value="bD">Block D</option>
+      <option value="bE">Block E</option>
+      <option value="bF">Block F</option>
+    </select>
+    <button class="btn btng btns" onclick="printSales()">&#128438; Print</button>
+  </div>
+  <div class="lbl">sales history</div>
+  <div id="sv-list"></div>
+  <div style="height:16px"></div>
+</div>
+
+
+<!-- SELL MODAL -->
+<div class="mo h" id="sell-modal">
+  <div class="md">
+    <div class="mh"></div>
+    <div class="mt">&#128181; Record Sale</div>
+    <input type="hidden" id="sell-pid">
+    <div class="fw" style="margin-bottom:10px">
+      <div style="font-size:14px;font-weight:600;color:var(--t);margin-bottom:8px" id="sell-plant-name"></div>
+      <div style="font-size:12px;color:var(--t3);margin-bottom:14px" id="sell-plant-info"></div>
+      <div class="fr">
+        <div class="fi"><label>Quantity to Sell</label><input type="number" id="sell-qty" min="1" value="1"></div>
+        <div class="fi"><label>Sale Price ($) each</label><input type="number" id="sell-price" step="0.01" placeholder="0.00"></div>
+      </div>
+      <div class="fi"><label>Customer Name</label><input type="text" id="sell-customer" placeholder="Customer name (optional)"></div>
+      <div class="fi"><label>Date</label><input type="date" id="sell-date"></div>
+      <div class="fi"><label>Notes</label><input type="text" id="sell-notes" placeholder="Invoice #, delivery, etc."></div>
+    </div>
+    <div id="sell-warning" style="display:none" class="al ala">&#9888; Quantity exceeds available stock.</div>
+    <div class="brow">
+      <button class="btn btnp" onclick="confirmSell()">&#10003; Confirm Sale</button>
+      <button class="btn btng" onclick="closeSellModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <div class="bn">
   <button class="bi on" id="nb-home" onclick="nav('home')">
     <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home
@@ -288,6 +339,9 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
   </button>
   <button class="bi" id="nb-add" onclick="nav('add')">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Register
+  </button>
+  <button class="bi" id="nb-sales" onclick="nav('sales')">
+    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Sales
   </button>
   <button class="bi" id="nb-export" onclick="nav('export')">
     <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export
@@ -402,15 +456,16 @@ function gm(){
 function nav(n){
   document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
   var el=document.getElementById('s-'+n); if(el)el.classList.add('on');
-  ['home','search','add','export'].forEach(function(x){
+  ['home','search','add','export','sales'].forEach(function(x){
     var b=document.getElementById('nb-'+x); if(b)b.classList.toggle('on',x===n);
   });
-  var sub={home:'Inventory - Main Yard',search:'Search',add:'New Record',export:'Export',bloque:'Block Detail',linea:'Line Detail'};
+  var sub={home:'Inventory - Main Yard',search:'Search',add:'New Record',export:'Export',sales:'Sales History',bloque:'Block Detail',linea:'Line Detail'};
   document.getElementById('tsub').textContent=sub[n]||'';
   if(n==='add')initForm();
   if(n==='export')renderExp();
   if(n==='home')render();
   if(n==='search'){document.getElementById('si').value='';doSearch();}
+  if(n==='sales')renderSales();
 }
 
 function render(){
@@ -517,7 +572,7 @@ function plantCard(p,db){
   else h+='<span style="color:var(--t3);font-style:italic">no price</span>';
   if(p.purchasePrice)h+='<span style="color:var(--a)">Cost:$'+parseFloat(p.purchasePrice).toFixed(2)+'</span>';
   h+='</div>';
-  h+='<div class="ca"><button class="btn btng btns" data-pid="'+p.id+'" onclick="openEdit(this.dataset.pid)">&#9998; Edit</button></div>';
+  h+='<div class="ca"><button class="btn btng btns" data-pid="'+p.id+'" onclick="openEdit(this.dataset.pid)">&#9998; Edit</button> <button class="btn btns" style="background:var(--gl);border-color:var(--g);color:var(--gd)" data-pid="'+p.id+'" onclick="openSell(this.dataset.pid)">&#128181; Sell</button>'+(p.soldOut?'<span class="bdg br2" style="margin-left:4px">Sold Out</span>':'')+'</div>';
   h+='</div></div>';
   return h;
 }
@@ -851,6 +906,201 @@ function clearNew(){
     loadData(); nav('home');
   }
 }
+
+
+// ── SALES MODULE ─────────────────────────────────────────────
+var SK = 'lb_sales_v1';
+
+function getSales(){
+  try{ var s=localStorage.getItem(SK); return s?JSON.parse(s):[]; }catch(e){ return []; }
+}
+
+function saveSales(sales){
+  try{ localStorage.setItem(SK,JSON.stringify(sales)); }catch(e){}
+}
+
+function openSell(pid){
+  var db=gm();
+  var p=db.plants.find(function(x){return x.id===pid;}); if(!p)return;
+  var avail=p.qty||1;
+  document.getElementById('sell-pid').value=pid;
+  document.getElementById('sell-plant-name').textContent=(p.commonName||p.species||'Unknown');
+  var l=db.lineas.find(function(x){return x.id===p.lineaId;});
+  var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+  var loc=b&&l?'Block '+b.label+' Line '+l.num:'';
+  document.getElementById('sell-plant-info').textContent=loc+(p.height?' | '+p.height:'')+(p.caliper?' | Cal:'+p.caliper:'')+(p.quality?' | '+p.quality:'')+' | Available: '+avail;
+  document.getElementById('sell-qty').value=1;
+  document.getElementById('sell-qty').max=avail;
+  document.getElementById('sell-price').value=p.price||'';
+  document.getElementById('sell-customer').value='';
+  document.getElementById('sell-notes').value='';
+  var today=new Date().toISOString().slice(0,10);
+  document.getElementById('sell-date').value=today;
+  document.getElementById('sell-warning').style.display='none';
+  document.getElementById('sell-modal').classList.remove('h');
+}
+
+function closeSellModal(){
+  document.getElementById('sell-modal').classList.add('h');
+}
+
+function confirmSell(){
+  var pid=document.getElementById('sell-pid').value;
+  var qty=parseInt(document.getElementById('sell-qty').value)||1;
+  var price=parseFloat(document.getElementById('sell-price').value)||0;
+  var customer=document.getElementById('sell-customer').value.trim();
+  var date=document.getElementById('sell-date').value;
+  var notes=document.getElementById('sell-notes').value.trim();
+
+  var db=gm();
+  var p=db.plants.find(function(x){return x.id===pid;}); if(!p)return;
+  var avail=p.qty||1;
+
+  if(qty>avail){
+    document.getElementById('sell-warning').style.display='flex';
+    return;
+  }
+
+  // Record the sale
+  var sales=getSales();
+  var sale={
+    id:'sv'+Date.now(),
+    plantId:pid,
+    commonName:p.commonName||p.species||'Unknown',
+    species:p.species||'',
+    lineaId:p.lineaId,
+    height:p.height||'',
+    caliper:p.caliper||'',
+    quality:p.quality||'',
+    qty:qty,
+    priceEach:price,
+    total:qty*price,
+    customer:customer,
+    date:date,
+    notes:notes,
+    ts:new Date().toISOString()
+  };
+  sales.unshift(sale);
+  saveSales(sales);
+
+  // Update inventory
+  var newQty=avail-qty;
+  var updated={qty:newQty, soldOut:newQty===0};
+  var ui=udb.plants.findIndex(function(x){return x.id===pid;});
+  if(ui>=0){
+    Object.assign(udb.plants[ui],updated);
+  } else {
+    // Copy from master and update
+    udb.plants.push(Object.assign({},p,updated));
+  }
+  su();
+  if(pend.indexOf(pid)<0){pend.push(pid);sp();}
+
+  closeSellModal();
+  render();
+  // If we were on linea screen, refresh it
+  if(alid){ showLinea(alid); }
+  alert('Sale recorded!\n'+qty+' x '+(p.commonName||p.species||'?')+' | Total: $'+(qty*price).toFixed(2));
+}
+
+function renderSales(){
+  var sales=getSales();
+  var bf=document.getElementById('sv-filter-block')?document.getElementById('sv-filter-block').value:'';
+  var db=gm();
+
+  // Filter by block if selected
+  if(bf){
+    sales=sales.filter(function(s){
+      var l=db.lineas.find(function(x){return x.id===s.lineaId;});
+      return l&&l.bloqueId===bf;
+    });
+  }
+
+  // Stats
+  var totalUnits=sales.reduce(function(a,s){return a+s.qty;},0);
+  var totalRev=sales.reduce(function(a,s){return a+s.total;},0);
+  document.getElementById('sv-total').textContent=sales.length;
+  document.getElementById('sv-units').textContent=totalUnits;
+  document.getElementById('sv-revenue').textContent='$'+totalRev.toFixed(0);
+
+  var list=document.getElementById('sv-list');
+  if(!sales.length){
+    list.innerHTML='<div class="es"><div class="ei">&#128181;</div><p>No sales recorded yet</p><small>Use the Sell button on any plant record</small></div>';
+    return;
+  }
+
+  var html='';
+  sales.forEach(function(s){
+    var l=db.lineas.find(function(x){return x.id===s.lineaId;});
+    var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+    var loc=b&&l?'Block '+b.label+' L'+l.num:'';
+    html+='<div class="card" style="flex-direction:column;gap:8px">';
+    html+='<div style="display:flex;justify-content:space-between;align-items:flex-start">';
+    html+='<div><div class="ct">'+s.commonName+(s.quality?' <span class="bdg bg">'+s.quality+'</span>':'')+'</div>';
+    html+='<div class="cm" style="margin-top:4px">';
+    if(loc)html+='<span>&#128205;'+loc+'</span>';
+    if(s.height)html+='<span>'+s.height+'</span>';
+    if(s.caliper)html+='<span>Cal:'+s.caliper+'</span>';
+    html+='</div></div>';
+    html+='<div style="text-align:right"><div style="font-size:16px;font-weight:600;color:var(--g)">$'+s.total.toFixed(2)+'</div>';
+    html+='<div style="font-size:11px;color:var(--t3)">'+s.qty+' units @ $'+s.priceEach.toFixed(2)+'</div></div></div>';
+    html+='<div style="border-top:1px solid var(--bd);padding-top:8px;display:flex;justify-content:space-between;align-items:center">';
+    html+='<div style="font-size:12px;color:var(--t3)">';
+    if(s.customer)html+='<span style="font-weight:600;color:var(--t)">'+s.customer+'</span> &middot; ';
+    html+=s.date;
+    if(s.notes)html+=' &middot; '+s.notes;
+    html+='</div>';
+    html+='<button class="btn btns btnr" style="font-size:11px;padding:4px 8px" data-sid="'+s.id+'" onclick="deleteSale(this.dataset.sid)">&#8203;&#10005;</button>';
+    html+='</div></div>';
+  });
+  list.innerHTML=html;
+}
+
+function deleteSale(sid){
+  if(!confirm('Remove this sale record?'))return;
+  var sales=getSales();
+  var s=sales.find(function(x){return x.id===sid;});
+  if(!s)return;
+  // Restore inventory qty
+  var db=gm();
+  var p=db.plants.find(function(x){return x.id===s.plantId;});
+  if(p){
+    var ui=udb.plants.findIndex(function(x){return x.id===s.plantId;});
+    var newQty=(p.qty||0)+s.qty;
+    var upd={qty:newQty,soldOut:false};
+    if(ui>=0){ Object.assign(udb.plants[ui],upd); }
+    else { udb.plants.push(Object.assign({},p,upd)); }
+    su();
+  }
+  saveSales(sales.filter(function(x){return x.id!==sid;}));
+  renderSales();
+  render();
+}
+
+function printSales(){
+  var sales=getSales();
+  var db=gm();
+  var w=window.open('','_blank');
+  var totalRev=sales.reduce(function(a,s){return a+s.total;},0);
+  var totalUnits=sales.reduce(function(a,s){return a+s.qty;},0);
+  var rows=sales.map(function(s){
+    var l=db.lineas.find(function(x){return x.id===s.lineaId;});
+    var b=l?db.bloques.find(function(x){return x.id===l.bloqueId;}):null;
+    var loc=b&&l?'Block '+b.label+' L'+l.num:'';
+    return '<tr><td>'+s.date+'</td><td>'+s.commonName+'</td><td>'+loc+'</td><td>'+(s.height||'')+(s.caliper?' Cal:'+s.caliper:'')+'</td><td style="text-align:center">'+s.qty+'</td><td style="text-align:right">$'+s.priceEach.toFixed(2)+'</td><td style="text-align:right;font-weight:600">$'+s.total.toFixed(2)+'</td><td>'+(s.customer||'')+'</td><td>'+(s.notes||'')+'</td></tr>';
+  }).join('');
+  w.document.write('<html><head><title>Linus-Biome Sales Report</title><style>body{font-family:Arial,sans-serif;font-size:12px;padding:20px}h2{color:#1D9E75}table{width:100%;border-collapse:collapse}th{background:#1D9E75;color:#fff;padding:8px;text-align:left;font-size:11px}td{padding:6px 8px;border-bottom:1px solid #eee;font-size:11px}tr:nth-child(even){background:#f9f9f9}.total{font-weight:bold;background:#E1F5EE!important}</style></head><body>');
+  w.document.write('<h2>Linus-Biome &mdash; Sales Report</h2>');
+  w.document.write('<p>Generated: '+new Date().toLocaleDateString()+' | Total Sales: '+sales.length+' | Units Sold: '+totalUnits+' | Revenue: $'+totalRev.toFixed(2)+'</p>');
+  w.document.write('<table><tr><th>Date</th><th>Plant</th><th>Location</th><th>Size</th><th>Qty</th><th>Price/u</th><th>Total</th><th>Customer</th><th>Notes</th></tr>');
+  w.document.write(rows);
+  w.document.write('<tr class="total"><td colspan="4">TOTAL</td><td style="text-align:center">'+totalUnits+'</td><td></td><td style="text-align:right">$'+totalRev.toFixed(2)+'</td><td colspan="2"></td></tr>');
+  w.document.write('</table></body></html>');
+  w.document.close();
+  w.print();
+}
+
+document.getElementById('sell-modal').addEventListener('click',function(e){if(e.target===this)closeSellModal();});
 
 document.getElementById('em').addEventListener('click',function(e){if(e.target===this)closeM();});
 loadData();
