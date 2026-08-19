@@ -1295,7 +1295,7 @@ function renderField(){
     });
     var hasData=secRows.length>0;
     var readyCount=secRows.filter(function(r){return r.status==='Ready';}).length;
-    html+='<div class="bc'+(hasData?' hd':'')+'" onclick="showFieldSection(''+sec.id+'')">';
+    html+='<div class="bc'+(hasData?' hd':'')+'" data-sid="'+sec.id+'" onclick="showFieldSection(this.dataset.sid)">';
     html+='<div><div class="blab">'+sec.name+'</div>';
     html+='<div class="binf">'+secRows.length+' rows &middot; '+secQty.toLocaleString()+' plants &middot; '+secSpc.length+' species'+(readyCount?' &middot; <span style="color:var(--g);font-weight:600">'+readyCount+' ready to dig</span>':'')+'</div></div>';
     html+='<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">';
