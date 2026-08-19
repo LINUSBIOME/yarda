@@ -330,6 +330,153 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
   </div>
 </div>
 
+
+<!-- FIELD INVENTORY - LOT SELECTION -->
+<div class="screen sc" id="s-field">
+  <div class="sg">
+    <div class="sc2"><div class="sn" id="fi-total">0</div><div class="sl">field rows</div></div>
+    <div class="sc2"><div class="sn" id="fi-species">0</div><div class="sl">species</div></div>
+    <div class="sc2"><div class="sn" id="fi-plants">0</div><div class="sl">est. plants</div></div>
+  </div>
+  <div id="fi-banner"></div>
+  <div class="lbl">Lot A — Sections</div>
+  <div id="fi-sections-list"></div>
+</div>
+
+<!-- FIELD SECTION DETAIL -->
+<div class="screen sc" id="s-field-section">
+  <div class="bk" onclick="nav('field')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span>Field</span></div>
+  <div class="dh">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:20px;font-weight:600" id="fis-name"></div>
+      <button class="btn btng btns" onclick="printFieldSection()">&#128438; Print</button>
+    </div>
+    <div style="font-size:12px;color:var(--t3);margin-top:4px" id="fis-meta"></div>
+  </div>
+  <button class="btn btnp btns" style="margin-bottom:14px" onclick="openAddFieldRow()">+ Add Row</button>
+  <div class="lbl">rows</div>
+  <div id="fis-rows"></div>
+  <div style="height:16px"></div>
+</div>
+
+
+<!-- ADD FIELD ROW MODAL -->
+<div class="mo h" id="field-row-modal">
+  <div class="md">
+    <div class="mh"></div>
+    <div class="mt" id="frm-title">&#127807; Add Field Row</div>
+    <input type="hidden" id="frm-id">
+    <input type="hidden" id="frm-section">
+    <div class="fw" style="margin-bottom:10px">
+      <div class="lbl" style="margin-top:0">Location</div>
+      <div class="fr">
+        <div class="fi"><label>Section</label>
+          <select id="frm-sec-select">
+            <option value="A1">Section A1</option>
+            <option value="A2">Section A2</option>
+            <option value="A3">Section A3</option>
+            <option value="A4">Section A4</option>
+          </select>
+        </div>
+        <div class="fi"><label>Row #</label><input type="number" id="frm-row-num" min="1" placeholder="1"></div>
+      </div>
+    </div>
+    <div class="fw" style="margin-bottom:10px">
+      <div class="lbl" style="margin-top:0">Species</div>
+      <div class="fi"><label>Primary Species</label><input type="text" id="frm-sp1" placeholder="e.g. Red Maple" list="sdl-field"></div>
+      <div class="fi"><label>Secondary Species (optional)</label><input type="text" id="frm-sp2" placeholder="e.g. Pin Oak"></div>
+      <datalist id="sdl-field"></datalist>
+    </div>
+    <div class="fw" style="margin-bottom:10px">
+      <div class="lbl" style="margin-top:0">Quantity & Size</div>
+      <div class="fr">
+        <div class="fi"><label>Est. Quantity</label><input type="number" id="frm-qty" min="1" placeholder="0"></div>
+        <div class="fi"><label>Year Planted</label><input type="number" id="frm-year" placeholder="2024" min="2000" max="2030"></div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label>Current Size</label><input type="text" id="frm-size" placeholder="e.g. 4-5ft, 1in cal"></div>
+        <div class="fi"><label>Caliper</label><input type="text" id="frm-cal" placeholder='e.g. 1.5"'></div>
+      </div>
+    </div>
+    <div class="fw" style="margin-bottom:10px">
+      <div class="lbl" style="margin-top:0">Status & Dig Window</div>
+      <div class="fi"><label>Status</label>
+        <select id="frm-status">
+          <option value="Growing">&#127807; Growing</option>
+          <option value="Ready">&#10003; Ready to Dig</option>
+          <option value="Dug">&#128250; Dug</option>
+        </select>
+      </div>
+      <div class="fr">
+        <div class="fi"><label>Dig Window Start</label>
+          <select id="frm-dig-start">
+            <option value="">--</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+        <div class="fi"><label>Dig Window End</label>
+          <select id="frm-dig-end">
+            <option value="">--</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+      </div>
+      <div class="fi"><label>Destination when dug</label>
+        <select id="frm-dest">
+          <option value="Yard">&#127795; Move to Yard</option>
+          <option value="Direct">&#128181; Direct Sale</option>
+          <option value="TBD">&#10067; TBD</option>
+        </select>
+      </div>
+    </div>
+    <div class="fw" style="margin-bottom:10px">
+      <div class="fi"><label>Notes</label><textarea id="frm-notes" placeholder="Observations, health, spacing..."></textarea></div>
+    </div>
+    <div class="brow">
+      <button class="btn btnp" onclick="saveFieldRow()">&#10003; Save Row</button>
+      <button class="btn btng" onclick="closeFieldModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOVE TO YARD MODAL -->
+<div class="mo h" id="field-move-modal">
+  <div class="md">
+    <div class="mh"></div>
+    <div class="mt">&#127795; Move to Yard</div>
+    <input type="hidden" id="fmm-id">
+    <div style="font-size:14px;font-weight:600;margin-bottom:4px" id="fmm-name"></div>
+    <div style="font-size:12px;color:var(--t3);margin-bottom:16px" id="fmm-info"></div>
+    <div class="fw" style="margin-bottom:10px">
+      <div class="fr">
+        <div class="fi"><label>Quantity to Move</label><input type="number" id="fmm-qty" min="1" value="1"></div>
+        <div class="fi"><label>Size after dig</label><input type="text" id="fmm-size" placeholder="e.g. 6-7ft"></div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label>Caliper</label><input type="text" id="fmm-cal" placeholder='e.g. 2"'></div>
+        <div class="fi"><label>Quality</label>
+          <select id="fmm-quality">
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium</option>
+            <option value="Segunda">Second</option>
+          </select>
+        </div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label>Target Block</label><select id="fmm-block"></select></div>
+        <div class="fi"><label>Target Line</label><select id="fmm-line"></select></div>
+      </div>
+      <div class="fi"><label>Sale Price ($)</label><input type="number" id="fmm-price" step="0.01" placeholder="0.00"></div>
+    </div>
+    <div class="brow">
+      <button class="btn btnp" onclick="confirmMoveToYard()">&#10003; Move to Yard</button>
+      <button class="btn btng" onclick="closeMoveModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <div class="bn">
   <button class="bi on" id="nb-home" onclick="nav('home')">
     <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home
@@ -342,6 +489,9 @@ html,body{height:100%;overflow:hidden;font-family:var(--fn);background:var(--bg)
   </button>
   <button class="bi" id="nb-sales" onclick="nav('sales')">
     <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Sales
+  </button>
+  <button class="bi" id="nb-field" onclick="nav('field')">
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><circle cx="12" cy="7" r="1" fill="currentColor"/></svg>Field
   </button>
   <button class="bi" id="nb-export" onclick="nav('export')">
     <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export
@@ -456,16 +606,18 @@ function gm(){
 function nav(n){
   document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
   var el=document.getElementById('s-'+n); if(el)el.classList.add('on');
-  ['home','search','add','export','sales'].forEach(function(x){
+  ['home','search','add','export','sales','field'].forEach(function(x){
     var b=document.getElementById('nb-'+x); if(b)b.classList.toggle('on',x===n);
   });
-  var sub={home:'Inventory - Main Yard',search:'Search',add:'New Record',export:'Export',sales:'Sales History',bloque:'Block Detail',linea:'Line Detail'};
+  var sub={home:'Inventory - Main Yard',search:'Search',add:'New Record',export:'Export',sales:'Sales History',field:'Field Inventory - Lot A',bloque:'Block Detail',linea:'Line Detail','field-section':'Section Detail'};
   document.getElementById('tsub').textContent=sub[n]||'';
   if(n==='add')initForm();
   if(n==='export')renderExp();
   if(n==='home')render();
   if(n==='search'){document.getElementById('si').value='';doSearch();}
   if(n==='sales')renderSales();
+  if(n==='field')renderField();
+  if(n==='field-section')renderFieldSection(currentFieldSection);
 }
 
 function render(){
@@ -1099,6 +1251,295 @@ function printSales(){
   w.document.close();
   w.print();
 }
+
+
+// ── FIELD INVENTORY MODULE ────────────────────────────────────
+var FK = 'lb_field_v1';
+var currentFieldSection = 'A1';
+
+var FIELD_SECTIONS = [
+  {id:'A1', name:'Section A1', desc:'Largest - bottom strip'},
+  {id:'A2', name:'Section A2', desc:'Middle large strip'},
+  {id:'A3', name:'Section A3', desc:'Center-left area'},
+  {id:'A4', name:'Section A4', desc:'Smallest - top corner'},
+];
+
+function getFieldRows(){
+  try{ var s=localStorage.getItem(FK); return s?JSON.parse(s):[]; }catch(e){ return []; }
+}
+function saveFieldRows(rows){
+  try{ localStorage.setItem(FK,JSON.stringify(rows)); }catch(e){}
+}
+
+function renderField(){
+  var rows=getFieldRows();
+  var totalQty=rows.reduce(function(a,r){return a+(parseInt(r.qty)||0);},0);
+  var spc=[];
+  rows.forEach(function(r){
+    if(r.sp1&&spc.indexOf(r.sp1)<0)spc.push(r.sp1);
+    if(r.sp2&&spc.indexOf(r.sp2)<0)spc.push(r.sp2);
+  });
+  document.getElementById('fi-total').textContent=rows.length;
+  document.getElementById('fi-species').textContent=spc.length;
+  document.getElementById('fi-plants').textContent=totalQty.toLocaleString();
+
+  var list=document.getElementById('fi-sections-list');
+  var html='';
+  FIELD_SECTIONS.forEach(function(sec){
+    var secRows=rows.filter(function(r){return r.section===sec.id;});
+    var secQty=secRows.reduce(function(a,r){return a+(parseInt(r.qty)||0);},0);
+    var secSpc=[];
+    secRows.forEach(function(r){
+      if(r.sp1&&secSpc.indexOf(r.sp1)<0)secSpc.push(r.sp1);
+      if(r.sp2&&secSpc.indexOf(r.sp2)<0)secSpc.push(r.sp2);
+    });
+    var hasData=secRows.length>0;
+    var readyCount=secRows.filter(function(r){return r.status==='Ready';}).length;
+    html+='<div class="bc'+(hasData?' hd':'')+'" onclick="showFieldSection(''+sec.id+'')">';
+    html+='<div><div class="blab">'+sec.name+'</div>';
+    html+='<div class="binf">'+secRows.length+' rows &middot; '+secQty.toLocaleString()+' plants &middot; '+secSpc.length+' species'+(readyCount?' &middot; <span style="color:var(--g);font-weight:600">'+readyCount+' ready to dig</span>':'')+'</div></div>';
+    html+='<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">';
+    html+='<span class="bbdg">'+(hasData?'Has data':'Empty')+'</span>';
+    html+='<span style="color:var(--t3);font-size:18px">&rsaquo;</span></div></div>';
+  });
+  list.innerHTML=html;
+}
+
+function showFieldSection(secId){
+  currentFieldSection=secId;
+  nav('field-section');
+  var sec=FIELD_SECTIONS.find(function(s){return s.id===secId;});
+  document.getElementById('fis-name').textContent=sec?sec.name:secId;
+  renderFieldSection(secId);
+  document.getElementById('tsub').textContent=sec?sec.name:'Section';
+}
+
+function renderFieldSection(secId){
+  var rows=getFieldRows().filter(function(r){return r.section===secId;});
+  var totalQty=rows.reduce(function(a,r){return a+(parseInt(r.qty)||0);},0);
+  document.getElementById('fis-meta').textContent=rows.length+' rows &middot; '+totalQty.toLocaleString()+' estimated plants';
+
+  var container=document.getElementById('fis-rows');
+  if(!rows.length){
+    container.innerHTML='<div class="es"><div class="ei">&#127807;</div><p>No rows recorded yet</p><small>Tap + Add Row to start the field survey</small></div>';
+    return;
+  }
+
+  rows.sort(function(a,b){return (parseInt(a.rowNum)||0)-(parseInt(b.rowNum)||0);});
+
+  var html='';
+  rows.forEach(function(r){
+    var statusColor=r.status==='Ready'?'bg':r.status==='Dug'?'bb':'bgr';
+    var statusIcon=r.status==='Ready'?'&#10003; ':r.status==='Dug'?'&#128250; ':'&#127807; ';
+    var digWin=r.digStart&&r.digEnd?r.digStart+' - '+r.digEnd:'Not set';
+    html+='<div class="card" style="flex-direction:column;gap:0">';
+    html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">';
+    html+='<div><div class="ct">Row '+r.rowNum+' &mdash; '+r.sp1+(r.sp2?' / '+r.sp2:'');
+    html+=' <span class="bdg '+statusColor+'">'+statusIcon+r.status+'</span></div>';
+    html+='<div class="cm" style="margin-top:4px">';
+    html+='<span>&#127807; '+r.qty+' plants</span>';
+    if(r.size)html+='<span>&#128207; '+r.size+'</span>';
+    if(r.cal)html+='<span>Cal: '+r.cal+'</span>';
+    if(r.yearPlanted)html+='<span>Planted: '+r.yearPlanted+'</span>';
+    html+='</div></div>';
+    html+='<div style="text-align:right"><div style="font-size:11px;color:var(--t3)">Dig window</div><div style="font-size:12px;font-weight:600;color:var(--g)">'+digWin+'</div>';
+    html+='<div style="font-size:11px;color:var(--t3)">&#8594; '+r.destination+'</div></div></div>';
+    if(r.notes)html+='<div style="font-size:11px;color:var(--t3);font-style:italic;padding-top:6px;border-top:1px solid var(--bd)">'+r.notes+'</div>';
+    html+='<div style="display:flex;gap:6px;margin-top:10px;padding-top:8px;border-top:1px solid var(--bd)">';
+    html+='<button class="btn btng btns" style="font-size:11px" data-rid="'+r.id+'" onclick="editFieldRow(this.dataset.rid)">&#9998; Edit</button>';
+    if(r.status!=="Dug")html+='<button class="btn btns" style="font-size:11px;background:var(--gl);border-color:var(--g);color:var(--gd)" data-rid="'+r.id+'" onclick="openMoveToYard(this.dataset.rid)">&#127795; Move to Yard</button>';
+    html+='<button class="btn btns btnr" style="font-size:11px" data-rid="'+r.id+'" onclick="deleteFieldRow(this.dataset.rid)">&#10005;</button>';
+    html+='</div></div>';
+  });
+  container.innerHTML=html;
+}
+
+function openAddFieldRow(){
+  clearFieldModal();
+  document.getElementById('frm-title').textContent='&#127807; Add Field Row';
+  document.getElementById('frm-id').value='';
+  document.getElementById('frm-sec-select').value=currentFieldSection;
+  // pre-fill next row number
+  var rows=getFieldRows().filter(function(r){return r.section===currentFieldSection;});
+  var maxRow=rows.reduce(function(a,r){return Math.max(a,parseInt(r.rowNum)||0);},0);
+  document.getElementById('frm-row-num').value=maxRow+1;
+  // fill species datalist
+  var allRows=getFieldRows();
+  var spc=[];
+  allRows.forEach(function(r){if(r.sp1&&spc.indexOf(r.sp1)<0)spc.push(r.sp1);if(r.sp2&&spc.indexOf(r.sp2)<0)spc.push(r.sp2);});
+  document.getElementById('sdl-field').innerHTML=spc.map(function(s){return '<option value="'+s+'">';}).join('');
+  document.getElementById('field-row-modal').classList.remove('h');
+}
+
+function editFieldRow(rid){
+  var rows=getFieldRows();
+  var r=rows.find(function(x){return x.id===rid;}); if(!r)return;
+  clearFieldModal();
+  document.getElementById('frm-title').textContent='&#9998; Edit Field Row';
+  document.getElementById('frm-id').value=rid;
+  document.getElementById('frm-sec-select').value=r.section;
+  document.getElementById('frm-row-num').value=r.rowNum;
+  document.getElementById('frm-sp1').value=r.sp1||'';
+  document.getElementById('frm-sp2').value=r.sp2||'';
+  document.getElementById('frm-qty').value=r.qty||'';
+  document.getElementById('frm-year').value=r.yearPlanted||'';
+  document.getElementById('frm-size').value=r.size||'';
+  document.getElementById('frm-cal').value=r.cal||'';
+  document.getElementById('frm-status').value=r.status||'Growing';
+  document.getElementById('frm-dig-start').value=r.digStart||'';
+  document.getElementById('frm-dig-end').value=r.digEnd||'';
+  document.getElementById('frm-dest').value=r.destination||'Yard';
+  document.getElementById('frm-notes').value=r.notes||'';
+  document.getElementById('field-row-modal').classList.remove('h');
+}
+
+function clearFieldModal(){
+  ['frm-sp1','frm-sp2','frm-size','frm-cal','frm-notes'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('frm-qty').value='';
+  document.getElementById('frm-year').value='';
+  document.getElementById('frm-status').value='Growing';
+  document.getElementById('frm-dig-start').value='';
+  document.getElementById('frm-dig-end').value='';
+  document.getElementById('frm-dest').value='Yard';
+}
+
+function saveFieldRow(){
+  var sp1=document.getElementById('frm-sp1').value.trim();
+  if(!sp1){alert('Enter at least the primary species.');return;}
+  var rid=document.getElementById('frm-id').value;
+  var rows=getFieldRows();
+  var row={
+    id:rid||'fr'+Date.now(),
+    section:document.getElementById('frm-sec-select').value,
+    rowNum:parseInt(document.getElementById('frm-row-num').value)||1,
+    sp1:sp1,
+    sp2:document.getElementById('frm-sp2').value.trim(),
+    qty:parseInt(document.getElementById('frm-qty').value)||0,
+    yearPlanted:document.getElementById('frm-year').value,
+    size:document.getElementById('frm-size').value.trim(),
+    cal:document.getElementById('frm-cal').value.trim(),
+    status:document.getElementById('frm-status').value,
+    digStart:document.getElementById('frm-dig-start').value,
+    digEnd:document.getElementById('frm-dig-end').value,
+    destination:document.getElementById('frm-dest').value,
+    notes:document.getElementById('frm-notes').value.trim(),
+    ts:new Date().toISOString()
+  };
+  if(rid){
+    var i=rows.findIndex(function(x){return x.id===rid;}); if(i>=0)rows[i]=row;
+  } else {
+    rows.push(row);
+  }
+  saveFieldRows(rows);
+  closeFieldModal();
+  renderField();
+  renderFieldSection(row.section);
+}
+
+function deleteFieldRow(rid){
+  if(!confirm('Delete this row record?'))return;
+  var rows=getFieldRows().filter(function(r){return r.id!==rid;});
+  saveFieldRows(rows);
+  renderFieldSection(currentFieldSection);
+  renderField();
+}
+
+function closeFieldModal(){document.getElementById('field-row-modal').classList.add('h');}
+
+function openMoveToYard(rid){
+  var rows=getFieldRows(); var r=rows.find(function(x){return x.id===rid;}); if(!r)return;
+  document.getElementById('fmm-id').value=rid;
+  document.getElementById('fmm-name').textContent=r.sp1+(r.sp2?' / '+r.sp2:'');
+  document.getElementById('fmm-info').textContent='Section '+r.section+' Row '+r.rowNum+' | Available: ~'+r.qty+' plants';
+  document.getElementById('fmm-qty').value=1;
+  document.getElementById('fmm-size').value=r.size||'';
+  document.getElementById('fmm-cal').value=r.cal||'';
+  document.getElementById('fmm-quality').value='Standard';
+  document.getElementById('fmm-price').value='';
+  // Fill blocks/lines
+  var db=gm();
+  var bs=document.getElementById('fmm-block');
+  bs.innerHTML=db.bloques.map(function(b){return '<option value="'+b.id+'">Block '+b.label+'</option>';}).join('');
+  var ls=db.lineas.filter(function(l){return l.bloqueId===db.bloques[0].id;});
+  document.getElementById('fmm-line').innerHTML=ls.map(function(l){return '<option value="'+l.id+'">Line '+l.num+'</option>';}).join('');
+  bs.onchange=function(){
+    var ls2=db.lineas.filter(function(l){return l.bloqueId===bs.value;});
+    document.getElementById('fmm-line').innerHTML=ls2.map(function(l){return '<option value="'+l.id+'">Line '+l.num+'</option>';}).join('');
+  };
+  document.getElementById('field-move-modal').classList.remove('h');
+}
+
+function confirmMoveToYard(){
+  var rid=document.getElementById('fmm-id').value;
+  var qty=parseInt(document.getElementById('fmm-qty').value)||1;
+  var size=document.getElementById('fmm-size').value.trim();
+  var cal=document.getElementById('fmm-cal').value.trim();
+  var quality=document.getElementById('fmm-quality').value;
+  var lineaId=document.getElementById('fmm-line').value;
+  var price=document.getElementById('fmm-price').value;
+
+  var rows=getFieldRows(); var r=rows.find(function(x){return x.id===rid;}); if(!r)return;
+
+  // Create yard plant record
+  var newPlant={
+    id:'fp'+Date.now(),
+    lineaId:lineaId,
+    position:'',
+    commonName:r.sp1,
+    species:r.sp1,
+    sciName:'',
+    height:size,
+    caliper:cal,
+    spread:'',
+    qty:qty,
+    quality:quality,
+    price:price,
+    purchasePrice:'',
+    origin:'Field - Lot A '+r.section,
+    notes:'Moved from field Row '+r.rowNum,
+    photoData:null,
+    ts:new Date().toISOString()
+  };
+  udb.plants.push(newPlant);
+  su();
+  pend.push(newPlant.id); sp();
+  syncP([newPlant]);
+
+  // Update field row qty
+  var newQty=r.qty-qty;
+  r.qty=newQty;
+  if(newQty<=0)r.status='Dug';
+  saveFieldRows(rows);
+
+  closeMoveModal();
+  renderFieldSection(currentFieldSection);
+  renderField();
+  alert(qty+' '+r.sp1+' moved to Yard successfully!');
+}
+
+function closeMoveModal(){document.getElementById('field-move-modal').classList.add('h');}
+
+function printFieldSection(){
+  var rows=getFieldRows().filter(function(r){return r.section===currentFieldSection;});
+  var sec=FIELD_SECTIONS.find(function(s){return s.id===currentFieldSection;});
+  rows.sort(function(a,b){return (parseInt(a.rowNum)||0)-(parseInt(b.rowNum)||0);});
+  var totalQty=rows.reduce(function(a,r){return a+(parseInt(r.qty)||0);},0);
+  var w=window.open('','_blank');
+  var trs=rows.map(function(r){
+    return '<tr><td>'+r.rowNum+'</td><td>'+r.sp1+(r.sp2?' / '+r.sp2:'')+'</td><td style="text-align:center">'+r.qty+'</td><td>'+(r.size||'')+(r.cal?' Cal:'+r.cal:'')+'</td><td>'+(r.yearPlanted||'')+'</td><td>'+r.status+'</td><td>'+(r.digStart&&r.digEnd?r.digStart+'-'+r.digEnd:'')+'</td><td>'+(r.destination||'')+'</td><td>'+(r.notes||'')+'</td></tr>';
+  }).join('');
+  w.document.write('<html><head><title>Linus-Biome Field - '+(sec?sec.name:currentFieldSection)+'</title><style>body{font-family:Arial,sans-serif;font-size:12px;padding:20px}h2{color:#1D9E75}table{width:100%;border-collapse:collapse}th{background:#1D9E75;color:#fff;padding:8px;text-align:left;font-size:11px}td{padding:6px 8px;border-bottom:1px solid #eee;font-size:11px}tr:nth-child(even){background:#f9f9f9}.total{font-weight:bold;background:#E1F5EE!important}</style></head><body>');
+  w.document.write('<h2>Linus-Biome &mdash; Field Inventory &mdash; Lot A &mdash; '+(sec?sec.name:currentFieldSection)+'</h2>');
+  w.document.write('<p>Generated: '+new Date().toLocaleDateString()+' | Rows: '+rows.length+' | Total Plants: '+totalQty.toLocaleString()+'</p>');
+  w.document.write('<table><tr><th>Row</th><th>Species</th><th>Qty</th><th>Size</th><th>Year</th><th>Status</th><th>Dig Window</th><th>Destination</th><th>Notes</th></tr>');
+  w.document.write(trs);
+  w.document.write('<tr class="total"><td colspan="2">TOTAL</td><td>'+totalQty+'</td><td colspan="6"></td></tr>');
+  w.document.write('</table></body></html>');
+  w.document.close(); w.print();
+}
+
+document.getElementById('field-row-modal').addEventListener('click',function(e){if(e.target===this)closeFieldModal();});
+document.getElementById('field-move-modal').addEventListener('click',function(e){if(e.target===this)closeMoveModal();});
 
 document.getElementById('sell-modal').addEventListener('click',function(e){if(e.target===this)closeSellModal();});
 
