@@ -567,7 +567,7 @@ var cq = ''; var cqe = ''; var cphotos = [];
 var abid = null; var alid = null;
 
 function loadData() {
-  fetch('data.json?v=2')
+  fetch('data.json?v='+Date.now())
     .then(function(r){return r.json();})
     .then(function(data){
       MD = data;
@@ -581,7 +581,7 @@ function loadData() {
       setSd(pend.length?'pend':'ok');
     })
     .catch(function(e){
-      document.getElementById('loading').textContent='Error loading data: '+e.message;
+      document.getElementById('loading').innerHTML='<div style="color:#A32D2D">Error loading data: '+e.message+'<br><small>URL: data.json?v=2</small><br><button onclick="loadData()" style="margin-top:10px;padding:8px 16px;background:#1D9E75;color:#fff;border:none;border-radius:8px;cursor:pointer">Retry</button></div>';
     });
 }
 
